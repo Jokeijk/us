@@ -1,14 +1,20 @@
-Setup Git
+#Setup Git
 
 git clone https://github.com/jokeijk/us
-git remote set-url origin https://jokeijk@github.com/jokeijk/us.git
 
-then you can
+#then do the following, change username to yours
 
+git remote set-url origin https://username@github.com/jokeijk/us.git
+
+
+#then you can try to change the file
 
 git add newfile
+
+#then your can commit to your local
+
 git commit -a
 
-finally
+#finally you can commit the change to github
 
 git push
