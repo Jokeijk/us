@@ -1,0 +1,14 @@
+Setup Git
+
+git clone https://github.com/jokeijk/us
+git remote set-url origin https://jokeijk@github.com/jokeijk/us.git
+
+then you can
+
+
+git add newfile
+git commit -a
+
+finally
+
+git push
