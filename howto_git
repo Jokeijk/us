@@ -1,3 +1,6 @@
+# Just learn how to use git
+#
+
 #Setup Git
 
 git clone https://github.com/jokeijk/us
@@ -5,7 +8,6 @@ git clone https://github.com/jokeijk/us
 #then do the following, change username to yours
 
 git remote set-url origin https://username@github.com/jokeijk/us.git
-
 
 #then you can try to change the file
 
