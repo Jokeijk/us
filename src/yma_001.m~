@@ -1,0 +1,30 @@
+% Decision tree
+
+function DCT_001
+Nf = 500;
+data_dir = '../data';
+
+% read the training data
+M = csvread([data_dir,'/kaggle_train_tf_idf.csv'],1);
+x_train = M(:,2:Nf+1);
+y_train = M(:, end);
+
+% test the minimal leaf size
+leafs = logspace(1,1.5,5);
+N = numel(leafs);
+err = zeros(N,1);
+for n=1:N
+    t = fitctree(x_train, y_train, 'CrossVal','On',...
+        'MinLeaf',leafs(n));
+    err(n) = kfoldLoss(t);
+end
+
+plot(leafs,err);
+xlabel('Min Leaf Size');
+ylabel('Cross-validated error');
+
+OptimalTree = fitctree(x_train,y_train,'minleaf',16);
+view(OptimalTree,'mode','graph');
+
+
+end
