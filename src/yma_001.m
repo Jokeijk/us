@@ -32,11 +32,15 @@ ID = M(:,1);
 OptimalTree = fitctree(x_train,y_train,'minleaf',18);
 view(OptimalTree,'mode','graph');
 
+[~,~,~,bestlevel] = cvLoss(OptimalTree,...
+    'SubTrees','All','TreeSize','min');
+tree = prune(OptimalTree,'Level',bestlevel);
+view(tree,'mode','graph');
 % prediction
-y = predict(OptimalTree,x_test);
+y = predict(tree,x_test);
 
 % output
-fid = fopen('DCT_001.csv','w+');
+fid = fopen('DCT_002.csv','w+');
 fprintf(fid,'Id,Prediction\n');
 for i=1:length(y)
     fprintf(fid,'%d,%d\n',ID(i),y(i));
