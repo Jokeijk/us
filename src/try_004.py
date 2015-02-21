@@ -19,8 +19,8 @@ def output(Ytest,filename):
 def get_data():
     train_file = '../data/kaggle_train_tf_idf.csv'
     test_file  = '../data/kaggle_test_tf_idf.csv'
-    df_train = pd.read_csv(train_file)
-    df_test = pd.read_csv(test_file)  
+    df_train = np.loadtxt(train_file,skiprows=1,delimiter=',')
+    df_test  = np.loadtxt(test_file,skiprows=1,delimiter=',')
   
     X = df_train.values[:,1:-1]
     Y = df_train.values[:,-1]
