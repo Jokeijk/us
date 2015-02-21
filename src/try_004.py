@@ -51,22 +51,24 @@ def dogridsearch(X,Y,param_space):
           % (time() - start, len(grid_search.grid_scores_)))      
     best = report(grid_search.grid_scores_)
 
-def onescore(X,Y):
-    clf = RandomForestClassifier(oob_score=True,n_jobs=-1, n_estimators=1000, max_features=300)
+def onescore(X,Y,Xtest):
+    clf = RandomForestClassifier(oob_score=True,n_jobs=-1, n_estimators=1000, max_features=300,random_state=0)
     clf.fit(X,Y)
     print "oob_score = ",  clf.oob_score_
     print clf.get_params()
-
+    ytest=clf.predict(Xtest)
+    output(ytest,"try_004.csv")
 
 X,Y,Xtest=get_data()
-grid_test0 = { "n_estimators"      : [1000],
-               "max_features"      : [300,500] }
-dogridsearch(X,Y,grid_test0)
 
-#tic = time()
-#onescore(X,Y)
-#toc = time()
-#print "time= ",toc-tic
+#grid_test0 = { "n_estimators"      : [1000],
+#               "max_features"      : [70, 100] }
+#dogridsearch(X,Y,grid_test0)
+
+tic = time()
+onescore(X,Y)
+toc = time()
+print "time= ",toc-tic
 
 #grid_test0 = { "n_estimators"      : [400],
 #               "criterion"         : ["gini"],
