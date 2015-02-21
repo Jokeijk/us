@@ -66,7 +66,7 @@ X,Y,Xtest=get_data()
 #dogridsearch(X,Y,grid_test0)
 
 tic = time()
-onescore(X,Y)
+onescore(X,Y,Xtest)
 toc = time()
 print "time= ",toc-tic
 
