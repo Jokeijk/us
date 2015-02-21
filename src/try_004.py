@@ -22,9 +22,9 @@ def get_data():
     df_train = np.loadtxt(train_file,skiprows=1,delimiter=',')
     df_test  = np.loadtxt(test_file,skiprows=1,delimiter=',')
   
-    X = df_train.values[:,1:-1]
-    Y = df_train.values[:,-1]
-    Xtest = df_test.values[:,1:]
+    X = df_train[:,1:-1]
+    Y = df_train[:,-1]
+    Xtest = df_test[:,1:]
     return X,Y,Xtest
 
 def report(grid_scores, n_top=5):
