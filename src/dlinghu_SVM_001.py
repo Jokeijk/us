@@ -3,13 +3,9 @@
 
 import numpy as np
 import pandas as pd
-# import matplotlib.pyplot as plt
 import time
 from sklearn import cross_validation
-# from sklearn.metrics import accuracy_score
 from sklearn.svm import SVC
-# from sklearn.preprocessing import StandardScaler
-# from sklearn.datasets import load_iris
 from sklearn.cross_validation import StratifiedKFold
 from sklearn.grid_search import GridSearchCV
 
@@ -51,14 +47,25 @@ def svm_tune_parameter(x_train, y_train):
     clf = grid.best_estimator_
     return clf
 
-x_train, y_train, x_test = read_data()
 
-clf = svm_tune_parameter(x_train, y_train)
-clf.fit(x_train, y_train)
-print "In-sample error = %s" % clf.score(x_train, y_train)
+# print cross validation error
+def print_cv_scores(clf, x_train, y_train, cv=5):
+    scores = cross_validation.cross_val_score(clf, x_train, y_train, cv=5)
+    print "Cross validation errors: " % scores
 
-scores = cross_validation.cross_val_score(clf, x_train, y_train, cv=5)
-print "Cross validation errors: " % scores
 
-y_test_predict = clf.predict(x_test)
-output(y_test_predict, 'SVM_001.csv')
+def svm_001():
+    x_train, y_train, x_test = read_data()
+
+    clf = svm_tune_parameter(x_train, y_train)
+    clf.fit(x_train, y_train)
+    print "In-sample error = %s" % clf.score(x_train, y_train)
+
+    print_cv_scores(clf, x_train, y_train, cv=5)
+
+    y_test_predict = clf.predict(x_test)
+    output(y_test_predict, 'SVM_001.csv')
+
+
+if __name__ == "__main__":
+    svm_001()
