@@ -12,7 +12,8 @@ from time import time
 
 
 def output(Ytest,filename):
-    out = pd.DataFrame({'Id':1+np.arange(Ytest.size),'Prediction':Ytest})
+    out = pd.DataFrame({'Id':1+np.arange(Ytest.size),
+        'Prediction':Ytest.astype(int)})
     out.to_csv(filename,index=False)
         
     
