@@ -4,3 +4,4 @@ Score    filename     src             date
 0.89775 DCT_001.csv  yma_001.m   Thu, 19 Feb 2015 07:49:40
 0.90900 DCT_002.csv  yma_001.m   Thu, 19 Feb 2015 08:02:17
 0.93400 ENS_001.csv  yma_003.m   Sat, 21 Feb 2015 00:00:35
+0.93325 try_004.csv  try_004.py  Sat, 21 Feb 2015 23:49:00
