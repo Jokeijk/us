@@ -25,6 +25,7 @@ for n=1:N
         'OOBPred','On','NVarToSample',300);
     tmp = oobError(cv);
     err(n) = tmp(end);
+	score = 1-tmp
 end
 
 % plot(ntree,err);
