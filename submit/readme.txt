@@ -11,3 +11,5 @@ N/A     SVM_002.csv                dlinghu_SVM_001.py    Sat, 21 Feb 2015 06:01:
 N/A     LR_001.csv                 dlinghu_LR_001.py     Sat, 21 Feb 2015 06:09:00
 N/A     LASSO_001.csv              dlinghu_LASSO_001.py  Sat, 21 Feb 2015 06:49:00
 0.93950 adaboost_001.csv           adaboost_001.py       Sun, 22 Feb 2015 06:08:22 
+N/A     kNN_001.csv                dlinghu_kNN_001.py    Sat, 21 Feb 2015 11:50:00
+N/A     kNN_002.csv                dlinghu_kNN_001.py    Sat, 21 Feb 2015 11:50:00

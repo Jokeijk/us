@@ -5,7 +5,8 @@ from sklearn.grid_search import GridSearchCV
 from sklearn import linear_model, decomposition
 from sklearn.cross_validation import StratifiedKFold
 from sklearn.metrics import accuracy_score
-from dlinghu_SVM_001 import output, read_data, print_cv_scores
+# from dlinghu_SVM_001 import output, read_data, print_cv_scores
+from dlinghu_functions import *
 
 
 # find the best threshold

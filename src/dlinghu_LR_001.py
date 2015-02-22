@@ -5,8 +5,8 @@ from sklearn.grid_search import GridSearchCV
 from sklearn import linear_model, decomposition
 from sklearn.pipeline import Pipeline
 from sklearn.cross_validation import StratifiedKFold
-from dlinghu_SVM_001 import output, read_data, print_cv_scores
-
+# from dlinghu_SVM_001 import output, read_data, print_cv_scores
+from dlinghu_functions import *
 
 def lr_tune_parameter(x_train, y_train):
     logistic = linear_model.LogisticRegression()
