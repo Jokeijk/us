@@ -27,6 +27,8 @@ def print_cv_scores(clf, x_train, y_train, cv=5):
     scores = cross_validation.cross_val_score(clf, x_train, y_train, cv=5)
     print "Cross validation errors: "
     print scores
+    print "Average cross validation error: %s" % scores.mean()
+    return scores.mean()
 
 
 # print output to local file
