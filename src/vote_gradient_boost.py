@@ -24,4 +24,4 @@ per = vote > total/2+1
 vote = vote*0
 vote[per]=1
 
-output(vote, "adaboost_vote.csv")
+output(vote, "gradientboost_vote.csv")
