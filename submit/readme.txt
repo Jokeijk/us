@@ -16,4 +16,4 @@ N/A     kNN_002.csv                dlinghu_kNN_001.py                           
 0.94000 adaboost_vote.csv          adaboost_002.py + vote.py                                               Sun, 22 Feb 2015 07:43:35
 0.93675 gradientboost_vote.csv run_gradientboost.sh+gradient_boost.py+vote_gradient_boost.py               Sun, 22 Feb 2015 11:00:00 PT
 0.93675 gradient_boost_1200.csv run_gradientboost.sh+gradient_boost.py+vote_gradient_boost.py              Sun, 22 Feb 2015 11:10:00 PT
-
+0.93925 gradient_boost_new.csv     gradient_boost_new.py                                                   Sun, 22 Feb 2015 13:47:00 PT

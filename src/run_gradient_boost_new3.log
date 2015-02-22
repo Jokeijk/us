@@ -1,0 +1,168 @@
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+[CV] max_features=70, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=70, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.940075 - 2.1min
+[CV] max_features=140, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=140, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.924906 - 3.3min
+[CV] max_features=80, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=80, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.916145 - 2.0min
+[CV] max_features=140, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=140, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.943750 - 3.5min
+[CV] max_features=80, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=80, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.922597 - 1.9min
+[CV] max_features=140, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=140, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.925094 - 3.2min
+[CV] max_features=30, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=30, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.941250 -  51.1s
+[CV] max_features=90, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=90, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.917397 - 2.1min
+[CV] max_features=150, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=150, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.918648 - 3.5min
+[CV] max_features=70, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=70, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.934919 - 1.8min
+[CV] max_features=130, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=130, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.923655 - 3.3min
+[CV] max_features=70, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=70, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.938750 - 1.9min
+[CV] max_features=140, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=140, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.935081 - 3.4min
+[CV] max_features=80, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=80, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.933833 - 2.1min
+[CV] max_features=140, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=140, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.932416 - 3.3min
+[CV] max_features=80, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=80, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.931164 - 2.1min
+[CV] max_features=150, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=150, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.932584 - 3.4min
+[CV] max_features=60, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=60, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.932416 - 1.8min
+[CV] max_features=130, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=130, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.936170 - 3.5min
+[CV] max_features=30, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=30, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.933667 -  49.7s
+[CV] max_features=90, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=90, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.931164 - 2.2min
+[CV] max_features=160, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=160, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.927591 - 3.6min
+[CV] max_features=80, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=80, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.941250 - 2.4min
+[CV] max_features=150, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=150, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.940000 - 4.2min
+[CV] max_features=90, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=90, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.923845 - 2.2min
+[CV] max_features=150, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=150, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.938826 - 3.6min
+[CV] max_features=90, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=90, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.933833 - 2.5min
+[CV] max_features=150, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=150, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.931164 - 3.8min
+[CV] max_features=30, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=30, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.922597 -  49.2s
+[CV] max_features=90, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=90, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.940000 - 2.3min
+[CV] max_features=160, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=160, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.936330 - 3.6min
+[CV] max_features=40, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=40, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.940000 - 1.2min
+[CV] max_features=100, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=100, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.931164 - 2.5min
+[CV] max_features=160, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=160, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.923655 - 3.7min
+[CV] max_features=30, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=30, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.935081 -  54.9s
+[CV] max_features=100, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=100, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.933833 - 2.5min
+[CV] max_features=160, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=160, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.936170 - 3.6min
+[CV] max_features=40, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=40, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.931164 - 1.1min
+[CV] max_features=100, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=100, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.941250 - 2.8min
+[CV] max_features=170, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=170, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.938826 - 3.8min
+[CV] max_features=50, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=50, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.922597 - 1.2min
+[CV] max_features=110, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=110, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.938826 - 2.7min
+[CV] max_features=170, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=170, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.930087 - 3.5min
+[CV] max_features=30, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=30, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.919900 -  51.1s
+[CV] max_features=100, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=100, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.925094 - 2.3min
+[CV] max_features=160, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=160, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.941250 - 3.8min
+[CV] max_features=60, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=60, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.919900 - 1.5min
+[CV] max_features=120, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=120, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.933667 - 2.9min
+[CV] max_features=180, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=180, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.932416 - 3.7min
+[CV] max_features=40, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=40, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.926342 - 1.2min
+[CV] max_features=100, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=100, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.917397 - 2.8min
+[CV] max_features=170, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=170, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.938750 - 4.4min
+[CV] max_features=40, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=40, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.911139 - 1.2min
+[CV] max_features=110, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=110, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.930087 - 2.9min
+[CV] max_features=180, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=180, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.925094 - 4.0min
+[CV] max_features=50, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=50, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.917397 - 1.3min
+[CV] max_features=110, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=110, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.933667 - 2.7min
+[CV] max_features=170, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=170, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.933667 - 3.8min
+[CV] max_features=50, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=50, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.933667 - 1.3min
+[CV] max_features=120, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=120, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.930087 - 2.8min
+[CV] max_features=180, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=180, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.940075 - 4.0min
+[CV] max_features=50, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=50, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.945000 - 1.3min
+[CV] max_features=120, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=120, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.936330 - 2.9min
+[CV] max_features=180, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=180, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.942500 - 4.1min
+[CV] max_features=60, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=60, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.936330 - 1.6min
+[CV] max_features=120, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=120, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.919900 - 2.9min
+[CV] max_features=190, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=190, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.937578 - 4.1min
+[CV] max_features=60, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=60, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.923845 - 1.5min
+[CV] max_features=120, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=120, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.938750 - 3.0min
+[CV] max_features=180, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=180, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.922403 - 3.9min
+[CV] max_features=50, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=50, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.938826 - 1.3min
+[CV] max_features=110, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=110, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.919900 - 2.7min
+[CV] max_features=170, n_estimators=2000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=170, n_estimators=2000, learning_rate=0.1, max_depth=3, score=0.923655 - 3.8min
+GridSearchCV took 775.56 seconds for 17 candidate parameter settings.
+Parameters with rank: 1
+Mean validation score: 0.9340 (std: 0.0072)
+Parameters: {'max_features': 130, 'n_estimators': 2000, 'learning_rate': 0.1, 'max_depth': 3}
+
+Parameters with rank: 2
+Mean validation score: 0.9330 (std: 0.0078)
+Parameters: {'max_features': 110, 'n_estimators': 2000, 'learning_rate': 0.1, 'max_depth': 3}
+
+Parameters with rank: 3
+Mean validation score: 0.9330 (std: 0.0064)
+Parameters: {'max_features': 160, 'n_estimators': 2000, 'learning_rate': 0.1, 'max_depth': 3}
+
+Parameters with rank: 4
+Mean validation score: 0.9330 (std: 0.0057)
+Parameters: {'max_features': 170, 'n_estimators': 2000, 'learning_rate': 0.1, 'max_depth': 3}
+
+Parameters with rank: 5
+Mean validation score: 0.9325 (std: 0.0079)
+Parameters: {'max_features': 180, 'n_estimators': 2000, 'learning_rate': 0.1, 'max_depth': 3}
+

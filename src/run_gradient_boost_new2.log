@@ -1,0 +1,40 @@
+Fitting 5 folds for each of 4 candidates, totalling 20 fits
+[CV] max_features=22, n_estimators=3000, learning_rate=0.1, max_depth=4 
+[CV]  max_features=22, n_estimators=3000, learning_rate=0.1, max_depth=4, score=0.922597 -  29.5s
+[CV] max_features=300, n_estimators=3000, learning_rate=0.1, max_depth=4 
+[CV]  max_features=300, n_estimators=3000, learning_rate=0.1, max_depth=4, score=0.925094 - 3.7min
+[CV] max_features=22, n_estimators=3000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=22, n_estimators=3000, learning_rate=0.1, max_depth=3, score=0.926158 -  35.3s
+[CV] max_features=22, n_estimators=3000, learning_rate=0.1, max_depth=4 
+[CV]  max_features=22, n_estimators=3000, learning_rate=0.1, max_depth=4, score=0.940075 -  28.5s
+[CV] max_features=22, n_estimators=3000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=22, n_estimators=3000, learning_rate=0.1, max_depth=3, score=0.920100 -  35.4s
+[CV] max_features=22, n_estimators=3000, learning_rate=0.1, max_depth=4 
+[CV]  max_features=22, n_estimators=3000, learning_rate=0.1, max_depth=4, score=0.929912 -  25.5s
+[CV] max_features=22, n_estimators=3000, learning_rate=0.1, max_depth=4 
+[CV]  max_features=22, n_estimators=3000, learning_rate=0.1, max_depth=4, score=0.943750 -  31.4s
+[CV] max_features=22, n_estimators=3000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=22, n_estimators=3000, learning_rate=0.1, max_depth=3, score=0.912390 -  39.1s
+[CV] max_features=22, n_estimators=3000, learning_rate=0.1, max_depth=4 
+[CV]  max_features=22, n_estimators=3000, learning_rate=0.1, max_depth=4, score=0.916145 -  28.9s
+[CV] max_features=22, n_estimators=3000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=22, n_estimators=3000, learning_rate=0.1, max_depth=3, score=0.947500 -  36.3s
+[CV] max_features=22, n_estimators=3000, learning_rate=0.1, max_depth=3 
+[CV]  max_features=22, n_estimators=3000, learning_rate=0.1, max_depth=3, score=0.933833 -  41.0s
+GridSearchCV took 877.63 seconds for 4 candidate parameter settings.
+Parameters with rank: 1
+Mean validation score: 0.9315 (std: 0.0065)
+Parameters: {'max_features': 300, 'n_estimators': 3000, 'learning_rate': 0.1, 'max_depth': 3}
+
+Parameters with rank: 2
+Mean validation score: 0.9310 (std: 0.0091)
+Parameters: {'max_features': 300, 'n_estimators': 3000, 'learning_rate': 0.1, 'max_depth': 4}
+
+Parameters with rank: 3
+Mean validation score: 0.9305 (std: 0.0104)
+Parameters: {'max_features': 22, 'n_estimators': 3000, 'learning_rate': 0.1, 'max_depth': 4}
+
+Parameters with rank: 4
+Mean validation score: 0.9280 (std: 0.0120)
+Parameters: {'max_features': 22, 'n_estimators': 3000, 'learning_rate': 0.1, 'max_depth': 3}
+
