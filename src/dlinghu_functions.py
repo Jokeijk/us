@@ -3,9 +3,11 @@ import numpy as np
 import pandas as pd
 import time
 from sklearn import cross_validation
-from sklearn.svm import SVC
 from sklearn.cross_validation import StratifiedKFold
 from sklearn.grid_search import GridSearchCV
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn import linear_model, decomposition
+from sklearn.pipeline import Pipeline
 
 
 def read_data():
@@ -51,3 +53,51 @@ def tune_parameters(clf, x_train, y_train, param_grid):
     print("The best classifier is: ", grid.best_estimator_)
     clf_best = grid.best_estimator_
     return clf_best
+
+
+# tune parameters for logistic regression
+def lr_tune_parameter(x_train, y_train):
+    logistic = linear_model.LogisticRegression()
+    pca = decomposition.PCA()
+    pipe = Pipeline(steps=[('pca', pca), ('logistic', logistic)])
+    pca.fit(x_train)
+    cv = StratifiedKFold(y=y_train, n_folds=3)
+    n_components = [20, 40, 80, 120, 160, 200]
+    c_list = np.logspace(0, 8, num=9)
+    print "Entering GridSearchCV..."
+
+    grid = GridSearchCV(pipe,
+                        dict(pca__n_components=n_components,
+                             logistic__C=c_list),
+                        cv=cv)
+    grid.fit(x_train, y_train)
+    print("The best classifier is: ", grid.best_estimator_)
+    clf = grid.best_estimator_
+    return clf
+
+
+# apply AdaBoost on existing models
+def ada_boost(clf, x_train, y_train, n_estimators, print_cv_error=0):
+    print 'Entering AdaBoost algorithm...'
+    start_time = time.time()
+    clf_boost = AdaBoostClassifier(clf,
+                                   algorithm="SAMME",
+                                   n_estimators=n_estimators)
+    clf_boost.fit(x_train, y_train)
+    elapsed_time = time.time() - start_time
+    print "Elapsed time = %s" % elapsed_time
+    print 'Done with AdaBoost!'
+    if print_cv_error == 1:
+        print 'Now calculating cv errors...'
+        start_time = time.time()
+        print 'For the original model:'
+        print_cv_scores(clf, x_train, y_train)
+        print 'For the boosted model:'
+        print_cv_scores(clf_boost, x_train, y_train)
+        elapsed_time = time.time() - start_time
+        print "Elapsed time = %s" % elapsed_time
+    else:
+        print 'Now calculating in-sample error...'
+        print "For the original model, in-sample score = %s" % clf.score(x_train, y_train)
+        print "For the boosted model, in-sample score = %s" % clf_boost.score(x_train, y_train)
+    return clf_boost
