@@ -1,0 +1,272 @@
+import numpy as np
+import pandas as pd
+from sklearn import tree
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.cross_validation import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn import cross_validation
+from sklearn import datasets
+from sklearn.grid_search import GridSearchCV, RandomizedSearchCV
+from scipy.stats import randint as sp_randint
+from operator import itemgetter
+from time import time
+import sys
+from sklearn.ensemble import AdaBoostClassifier
+
+
+def output(Ytest,filename):
+    out = pd.DataFrame({'Id':1+np.arange(Ytest.size),
+        'Prediction':Ytest.astype(int)})
+    out.to_csv(filename,index=False)
+
+def get_data():
+    train_file = '../data/kaggle_train_tf_idf.csv'
+    test_file  = '../data/kaggle_test_tf_idf.csv'
+    df_train = np.loadtxt(train_file,skiprows=1,delimiter=',')
+    df_test  = np.loadtxt(test_file,skiprows=1,delimiter=',')
+
+    X = df_train[:,1:-1]
+    Y = df_train[:,-1]
+    Xtest = df_test[:,1:]
+    return X,Y,Xtest
+
+def final_run(X,Y,Xtest):
+    # 3 and 700 seems to be best
+    clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=3,max_features=100),
+            algorithm="SAMME",
+            n_estimators=700)
+    clf.fit(X,Y)
+    Ytest=clf.predict(Xtest)
+    output(Ytest,'adaboost_005.csv')
+
+def report(grid_scores, n_top=5):
+    params = None
+    top_scores = sorted(grid_scores, key=itemgetter(1), reverse=True)[:n_top]
+    for i, score in enumerate(top_scores):
+        print("Parameters with rank: {0}".format(i + 1))
+        print("Mean validation score: {0:.4f} (std: {1:.4f})".format(
+              score.mean_validation_score, np.std(score.cv_validation_scores)))
+        print("Parameters: {0}".format(score.parameters))
+        print("")
+
+        if params == None:
+            params = score.parameters
+
+    return params
+
+def dogridsearch(X,Y,param_space,clf,cv):
+    grid_search = GridSearchCV(clf,param_space,verbose=10l,cv=cv,n_jobs=-1)
+    start = time()
+    grid_search.fit(X,Y)
+    print("GridSearchCV took %.2f seconds for %d candidate parameter settings."
+          % (time() - start, len(grid_search.grid_scores_)))
+    best = report(grid_search.grid_scores_)
+
+
+def backcheck_case(X,Y):
+    depth=3
+    n_est=700
+    clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=depth),
+        algorithm="SAMME",
+        n_estimators=n_est,random_state=0)
+    score =  cross_validation.cross_val_score(clf,X,Y, cv=5, n_jobs=-1)
+    print "depth=", depth,"n_est=", n_est,"score=", score, " smean=", score.mean()
+
+def cross_val(X,Y):
+    clf = AdaBoostClassifier(DecisionTreeClassifier())
+    param_grid={
+            "n_estimators":range(500,1201,100),
+            "base_estimator__max_depth":[1,2,3,4],
+            "base_estimator__max_features":['auto',100,300]
+            } # 700 3 300
+    param_grid={
+            "n_estimators":[700,750],
+            "base_estimator__max_depth":[3],
+            "base_estimator__max_features":range(200,331,10)
+            }
+    param_grid={
+            "n_estimators":range(700,790,3),
+            "base_estimator__max_depth":[3],
+            "base_estimator__max_features":[300]
+            }
+    param_grid={
+            "n_estimators":[721],
+            "base_estimator__max_depth":[3],
+            "base_estimator__max_features":['auto',300]
+            }
+    param_grid={
+            "n_estimators":[700],
+            "base_estimator__max_depth":[3],
+            "algorithm":["SAMME"],
+            "base_estimator__max_features":['auto',100,300]
+            }
+    param_grid={
+            "n_estimators":[2000],
+            "base_estimator__min_samples_split":[200,500],
+            "algorithm":["SAMME","SAMME.R"],
+            "base_estimator__max_features":[None,100]
+            }
+    param_grid={
+            "n_estimators":[2000],
+            "base_estimator__min_samples_split":[300,400,500,600],
+            "algorithm":["SAMME"]
+            }
+    dogridsearch(X,Y,param_grid,clf,cv=5)
+    dogridsearch(X,Y,param_grid,clf,cv=10)
+
+def main():
+    X,Y,Xtest=get_data()
+    tic=time()
+    #backcheck_case(X,Y)
+    cross_val(X,Y)
+    #final_run(X,Y,Xtest)
+    toc=time()
+    print "time {} second ".format(toc-tic)
+
+if __name__ == '__main__':
+    main()
+Fitting 5 folds for each of 4 candidates, totalling 20 fits
+[CV] n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME, score=0.919900 -48.6min
+[CV] n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME, score=0.946317 -47.9min
+[CV] n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME, score=0.917603 -48.6min
+[CV] n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME, score=0.933667 -48.9min
+[CV] n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME, score=0.945000 -48.6min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, score=0.943750 -54.3min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, score=0.940075 -55.1min
+[CV] n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME, score=0.936330 -64.6min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, score=0.919900 -56.6min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, score=0.931164 -57.1min
+[CV] n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME, score=0.919900 -68.2min
+[CV] n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME, score=0.920100 -67.3min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, score=0.921348 -54.3min
+[CV] n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME, score=0.929912 -66.2min
+[CV] n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME, score=0.948750 -65.0min
+[CV] n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME, score=0.940075 -81.9min
+GridSearchCV took 8686.71 seconds for 4 candidate parameter settings.
+Parameters with rank: 1
+Mean validation score: 0.9325 (std: 0.0121)
+Parameters: {'n_estimators': 2000, 'base_estimator__min_samples_split': 600, 'algorithm': 'SAMME'}
+
+Parameters with rank: 2
+Mean validation score: 0.9313 (std: 0.0096)
+Parameters: {'n_estimators': 2000, 'base_estimator__min_samples_split': 500, 'algorithm': 'SAMME'}
+
+Parameters with rank: 3
+Mean validation score: 0.9310 (std: 0.0108)
+Parameters: {'n_estimators': 2000, 'base_estimator__min_samples_split': 400, 'algorithm': 'SAMME'}
+
+Parameters with rank: 4
+Mean validation score: 0.9253 (std: 0.0122)
+Parameters: {'n_estimators': 2000, 'base_estimator__min_samples_split': 300, 'algorithm': 'SAMME'}
+
+Fitting 10 folds for each of 4 candidates, totalling 40 fits
+[CV] n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME, score=0.912718 -87.6min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, score=0.925187 -72.8min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, score=0.917293 -71.8min
+[CV] n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME, score=0.927681 -84.2min
+[CV] n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME, score=0.942500 -83.3min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, score=0.935000 -72.6min
+[CV] n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME, score=0.945000 -84.4min
+[CV] n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME, score=0.919799 -87.0min
+[CV] n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME, score=0.962500 -86.4min
+[CV] n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME, score=0.937656 -87.0min
+[CV] n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME, score=0.924812 -88.8min
+[CV] n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME, score=0.942500 -104.3min
+[CV] n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME, score=0.929825 -89.5min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, score=0.934837 -71.7min
+[CV] n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=400, algorithm=SAMME, score=0.927500 -85.8min
+[CV] n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME, score=0.907731 -61.0min
+[CV] n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME, score=0.932668 -57.0min
+[CV] n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME, score=0.962500 -106.5min
+[CV] n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME, score=0.915212 -111.0min
+[CV] n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME, score=0.919799 -106.8min
+[CV] n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME, score=0.927318 -108.4min
+[CV] n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME, score=0.907731 -106.8min
+[CV] n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME, score=0.927500 -106.4min
+[CV] n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME, score=0.927681 -108.8min
+[CV] n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME, score=0.932500 -110.2min
+[CV] n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME, score=0.925187 -61.1min
+[CV] n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME, score=0.945000 -56.1min
+[CV] n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=300, algorithm=SAMME, score=0.924812 -110.2min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, score=0.945000 -68.8min
+[CV] n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME, score=0.930000 -55.0min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, score=0.937500 -70.5min
+[CV] n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME, score=0.957500 -55.5min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, score=0.965000 -70.6min
+[CV] n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME, score=0.950000 -55.1min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, score=0.935162 -70.9min
+[CV] n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME, score=0.929825 -55.4min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, score=0.932331 -70.9min
+[CV] n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=600, algorithm=SAMME, score=0.932331 -55.2min
+GridSearchCV took 11704.81 seconds for 4 candidate parameter settings.
+Parameters with rank: 1
+Mean validation score: 0.9343 (std: 0.0135)
+Parameters: {'n_estimators': 2000, 'base_estimator__min_samples_split': 500, 'algorithm': 'SAMME'}
+
+Parameters with rank: 2
+Mean validation score: 0.9330 (std: 0.0136)
+Parameters: {'n_estimators': 2000, 'base_estimator__min_samples_split': 400, 'algorithm': 'SAMME'}
+
+Parameters with rank: 3
+Mean validation score: 0.9327 (std: 0.0141)
+Parameters: {'n_estimators': 2000, 'base_estimator__min_samples_split': 600, 'algorithm': 'SAMME'}
+
+Parameters with rank: 4
+Mean validation score: 0.9287 (std: 0.0144)
+Parameters: {'n_estimators': 2000, 'base_estimator__min_samples_split': 300, 'algorithm': 'SAMME'}
+
+time 20391.531498 second 

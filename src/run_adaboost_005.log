@@ -1,0 +1,83 @@
+Fitting 5 folds for each of 8 candidates, totalling 40 fits
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, base_estimator__max_features=100 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, base_estimator__max_features=100, score=0.932416 -11.0min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME.R, base_estimator__max_features=100 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME.R, base_estimator__max_features=100, score=0.920100 -10.6min
+[CV] n_estimators=2000, base_estimator__min_samples_split=200, algorithm=SAMME, base_estimator__max_features=100 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=200, algorithm=SAMME, base_estimator__max_features=100, score=0.912609 -18.4min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME.R, base_estimator__max_features=100 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME.R, base_estimator__max_features=100, score=0.941250 -10.2min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, base_estimator__max_features=None 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, base_estimator__max_features=None, score=0.928661 -55.7min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME.R, base_estimator__max_features=None 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME.R, base_estimator__max_features=None, score=0.938826 -53.0min
+[CV] n_estimators=2000, base_estimator__min_samples_split=200, algorithm=SAMME, base_estimator__max_features=100 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=200, algorithm=SAMME, base_estimator__max_features=100, score=0.912390 -19.3min
+[CV] n_estimators=2000, base_estimator__min_samples_split=200, algorithm=SAMME, base_estimator__max_features=100 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=200, algorithm=SAMME, base_estimator__max_features=100, score=0.930087 -18.9min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME.R, base_estimator__max_features=None 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME.R, base_estimator__max_features=None, score=0.918648 -54.8min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, base_estimator__max_features=100 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, base_estimator__max_features=100, score=0.925094 -10.9min
+[CV] n_estimators=2000, base_estimator__min_samples_split=200, algorithm=SAMME.R, base_estimator__max_features=100 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=200, algorithm=SAMME.R, base_estimator__max_features=100, score=0.889862 -20.9min
+[CV] n_estimators=2000, base_estimator__min_samples_split=200, algorithm=SAMME.R, base_estimator__max_features=100 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=200, algorithm=SAMME.R, base_estimator__max_features=100, score=0.890137 -22.1min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, base_estimator__max_features=None 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, base_estimator__max_features=None, score=0.945000 -54.6min
+[CV] n_estimators=2000, base_estimator__min_samples_split=200, algorithm=SAMME, base_estimator__max_features=100 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=200, algorithm=SAMME, base_estimator__max_features=100, score=0.922403 -18.7min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME.R, base_estimator__max_features=100 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME.R, base_estimator__max_features=100, score=0.912390 -10.2min
+[CV] n_estimators=2000, base_estimator__min_samples_split=200, algorithm=SAMME, base_estimator__max_features=100 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=200, algorithm=SAMME, base_estimator__max_features=100, score=0.935000 -18.5min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME.R, base_estimator__max_features=100 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME.R, base_estimator__max_features=100, score=0.927409 -10.5min
+[CV] n_estimators=2000, base_estimator__min_samples_split=200, algorithm=SAMME.R, base_estimator__max_features=100 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=200, algorithm=SAMME.R, base_estimator__max_features=100, score=0.876404 -22.6min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, base_estimator__max_features=100 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, base_estimator__max_features=100, score=0.935081 -11.3min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME.R, base_estimator__max_features=100 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME.R, base_estimator__max_features=100, score=0.938826 -11.0min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME.R, base_estimator__max_features=None 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME.R, base_estimator__max_features=None, score=0.912609 -54.1min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, base_estimator__max_features=None 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, base_estimator__max_features=None, score=0.920100 -56.4min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME.R, base_estimator__max_features=None 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME.R, base_estimator__max_features=None, score=0.942500 -51.4min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, base_estimator__max_features=100 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, base_estimator__max_features=100, score=0.923655 -10.7min
+[CV] n_estimators=2000, base_estimator__min_samples_split=200, algorithm=SAMME.R, base_estimator__max_features=100 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=200, algorithm=SAMME.R, base_estimator__max_features=100, score=0.897500 -21.0min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, base_estimator__max_features=100 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, base_estimator__max_features=100, score=0.945000 -10.9min
+[CV] n_estimators=2000, base_estimator__min_samples_split=200, algorithm=SAMME.R, base_estimator__max_features=100 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=200, algorithm=SAMME.R, base_estimator__max_features=100, score=0.882353 -21.0min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME.R, base_estimator__max_features=None 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME.R, base_estimator__max_features=None, score=0.914894 -53.9min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, base_estimator__max_features=None 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, base_estimator__max_features=None, score=0.919900 -57.2min
+[CV] n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, base_estimator__max_features=None 
+[CV]  n_estimators=2000, base_estimator__min_samples_split=500, algorithm=SAMME, base_estimator__max_features=None, score=0.945069 -55.1min
+GridSearchCV took 7479.22 seconds for 8 candidate parameter settings.
+Parameters with rank: 1
+Mean validation score: 0.9323 (std: 0.0077)
+Parameters: {'n_estimators': 2000, 'base_estimator__min_samples_split': 500, 'base_estimator__max_features': 100, 'algorithm': 'SAMME'}
+
+Parameters with rank: 2
+Mean validation score: 0.9317 (std: 0.0113)
+Parameters: {'n_estimators': 2000, 'base_estimator__min_samples_split': 500, 'base_estimator__max_features': None, 'algorithm': 'SAMME'}
+
+Parameters with rank: 3
+Mean validation score: 0.9280 (std: 0.0109)
+Parameters: {'n_estimators': 2000, 'base_estimator__min_samples_split': 500, 'base_estimator__max_features': 100, 'algorithm': 'SAMME.R'}
+
+Parameters with rank: 4
+Mean validation score: 0.9255 (std: 0.0126)
+Parameters: {'n_estimators': 2000, 'base_estimator__min_samples_split': 500, 'base_estimator__max_features': None, 'algorithm': 'SAMME.R'}
+
+Parameters with rank: 5
+Mean validation score: 0.9225 (std: 0.0091)
+Parameters: {'n_estimators': 2000, 'base_estimator__min_samples_split': 200, 'base_estimator__max_features': 100, 'algorithm': 'SAMME'}
+
+time 7479.22470784 second 
