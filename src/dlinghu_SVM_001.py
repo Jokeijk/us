@@ -1,13 +1,7 @@
 # this file implements SVM with RBF kernel, uses grid search for the parameters
 # C and Gamma
 
-import numpy as np
-import pandas as pd
-import time
-from sklearn import cross_validation
 from sklearn.svm import SVC
-from sklearn.cross_validation import StratifiedKFold
-from sklearn.grid_search import GridSearchCV
 from dlinghu_functions import *
 
 
@@ -34,7 +28,7 @@ def svm_001():
 
     clf = svm_tune_parameter(x_train, y_train)
     clf.fit(x_train, y_train)
-    print "In-sample error = %s" % clf.score(x_train, y_train)
+    print "In-sample score = %s" % clf.score(x_train, y_train)
 
     print_cv_scores(clf, x_train, y_train, cv=5)
 
