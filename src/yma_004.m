@@ -19,19 +19,25 @@ x_test = M(:,2:Nf+1);
 ID = M(:,1);
 
 % test the minimal leaf size
-ntree = 100;
+ntree = 500;
 N = numel(ntree);
-err = zeros(N,1);
+
+nvar = 300;
+M = numel(nvar);
+
+err = zeros(N,M);
 
 for n=1:N
-    cv = TreeBagger(ntree(n),x_train, y_train,...
-        'Method','classification',...
-        'OOBPred','On','NVarToSample',300);
-    tmp = oobError(cv);
-    err(n) = tmp(end);
-	score = 1-tmp
+    for m = 1:M
+        cv = TreeBagger(ntree(n),x_train, y_train,...
+            'Method','classification',...
+            'OOBPred','On','NVarToSample',nvar(m));
+        tmp = oobError(cv);
+        err(n,m) = tmp(end);
+    end
 end
 disp(err);
+dlmwrite('tmp.err',err,'delimiter',' ');
 % plot(ntree,err);
 % xlabel('Number of trees');
 % ylabel('Cross-validation error');
@@ -41,7 +47,7 @@ disp(err);
 y = predict(cv,x_test);
 
 % output
-fid = fopen('ENS_001.csv','w+');
+fid = fopen('ENS_002.csv','w+');
 fprintf(fid,'Id,Prediction\n');
 for i=1:length(y)
     fprintf(fid,'%d,%d\n',ID(i),str2num(y{i}));
