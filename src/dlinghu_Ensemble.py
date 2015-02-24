@@ -151,4 +151,4 @@ valid_ratio = 0.15  # use 15% training data as validation data
 # y_test_predict = reg_ensemble(estimators, valid_ratio, x_train, y_train, x_test)
 y_test_predict = ensemble(linear_model.LogisticRegression(),
                           estimators, valid_ratio, x_train, y_train, x_test)
-# output(y_test_predict.reshape(-1), 'dlinghu_Ensemble_001.csv')
+output(y_test_predict.reshape(-1), 'dlinghu_Ensemble_002.csv')
