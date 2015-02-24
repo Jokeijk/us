@@ -10,9 +10,9 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.cross_validation import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import Ridge
-from dlinghu_functions import *
+from numpy import genfromtxt
 from sklearn.ensemble import GradientBoostingClassifier
-
+from dlinghu_functions import *
 
 # y_predict_collection = np.array(x_test.shape[0], len(estimators) * n_bootstrap)
 # y_test_predict_list = []
@@ -91,6 +91,20 @@ def ensemble(clf, estimators, valid_ratio, x_train, y_train, x_test):
     return y_test_predict
 
 
+def ensemble_no_test(clf, estimators, valid_ratio, x_train, y_train):
+    x_train_sub, x_valid, y_train_sub, y_valid = train_test_split(x_train, y_train, test_size=valid_ratio)
+    y_valid_predict_list = manual_bagging(estimators, x_train_sub, y_train_sub, x_valid, bagging=False)
+    y_valid_predict_array = list_to_array(y_valid_predict_list)
+    print "for comparison, here are single predictor performance:"
+    for i in xrange(y_valid_predict_array.shape[1]):
+        print "score for %s-th predictor = %s" \
+              % (i, accuracy_score(y_valid_predict_array[:, i], y_valid))
+    clf.fit(y_valid_predict_array, y_valid)
+    print "Ensembled score = %s" % clf.score(y_valid_predict_array, y_valid)
+    return clf
+
+
+
 # def majority_vote(y_predict_list):
 # y_predict_cumulative = np.zeros((y_predict_list[0].shape[0], 1))
 # y_predict = np.zeros((y_predict_list[0].shape[0], 1))
@@ -113,42 +127,51 @@ dt_boosted = AdaBoostClassifier(DecisionTreeClassifier(max_depth=3, max_features
 
 
 # ###################################################################
-# 0.9430 adaboost_005.py
+if __name__ == "__main__":
+    # 0.9430 adaboost_005.py
 
-clf1 = AdaBoostClassifier(
-    DecisionTreeClassifier(min_samples_split=500),
-    algorithm="SAMME", n_estimators=2000)
+    clf1 = AdaBoostClassifier(
+        DecisionTreeClassifier(min_samples_split=500),
+        algorithm="SAMME", n_estimators=2000)
 
-# 0.9365 gradient_boost_newnew.py
+    # 0.9365 gradient_boost_newnew.py
 
-clf2 = GradientBoostingClassifier(
-    n_estimators=2000,
-    max_depth=3,
-    max_features=None,
-    learning_rate=0.08,
-    random_state=0)
+    clf2 = GradientBoostingClassifier(
+        n_estimators=2000,
+        max_depth=3,
+        max_features=None,
+        learning_rate=0.08,
+        random_state=0)
 
-# 0.93750, adaboost_003.py
-clf3 = AdaBoostClassifier(DecisionTreeClassifier(max_depth=3, max_features=100),
-                          algorithm="SAMME",
-                          n_estimators=700)
+    # 0.93750, adaboost_003.py
+    clf3 = AdaBoostClassifier(DecisionTreeClassifier(max_depth=3, max_features=100),
+                              algorithm="SAMME",
+                              n_estimators=700)
 
-# 0.9395, adaboost_001.py
-clf4 = AdaBoostClassifier(DecisionTreeClassifier(max_depth=3),
-                          algorithm="SAMME",
-                          n_estimators=700)
-###################################################################
-# estimators = [('SVM', svm), ('Logistic', lr), ('kNN-20', knn),
-# ('DT-boosted', dt_boosted)]
-# estimators = [('SVM', svm), ('Logistic', lr), ('kNN-20', knn), ('RF', rf)]
-estimators = [('SVM', svm), ('Logistic', lr), ('kNN-20', knn), ('RF', rf),
-              ('clf1', clf1), ('clf2', clf2), ('clf3', clf3), ('clf4', clf4)]
+    # 0.9395, adaboost_001.py
+    clf4 = AdaBoostClassifier(DecisionTreeClassifier(max_depth=3),
+                              algorithm="SAMME",
+                              n_estimators=700)
+    ###################################################################
+    # estimators = [('SVM', svm), ('Logistic', lr), ('kNN-20', knn),
+    # ('DT-boosted', dt_boosted)]
+    estimators = [('SVM', svm), ('Logistic', lr), ('kNN-20', knn), ('RF', rf)]
+    # estimators = [('SVM', svm), ('Logistic', lr), ('kNN-20', knn), ('RF', rf),
+    #               ('clf1', clf1), ('clf2', clf2), ('clf3', clf3), ('clf4', clf4)]
 
-n_bootstrap = 10
-valid_ratio = 0.15  # use 15% training data as validation data
-# n_train = x_train.shape[0]
-# n_test = x_test.shape[0]
-# y_test_predict = reg_ensemble(estimators, valid_ratio, x_train, y_train, x_test)
-y_test_predict = ensemble(linear_model.LogisticRegression(),
-                          estimators, valid_ratio, x_train, y_train, x_test)
-output(y_test_predict.reshape(-1), 'dlinghu_Ensemble_002.csv')
+    n_bootstrap = 10
+    valid_ratio = 0.15  # use 15% training data as validation data
+    # n_train = x_train.shape[0]
+    # n_test = x_test.shape[0]
+    # y_test_predict = reg_ensemble(estimators, valid_ratio, x_train, y_train, x_test)
+    # y_test_predict = ensemble(linear_model.LogisticRegression(),
+    #                           estimators, valid_ratio, x_train, y_train, x_test)
+    clf_ensemble = ensemble_no_test(linear_model.LogisticRegression(),
+                                    estimators, valid_ratio, x_train, y_train)
+    print 'Now we have the ensemble model.'
+    print 'Please make sure dlinghu_Ensemble2.py has finished and' \
+          'give you the newest y_test_prediction_array.csv file'
+    raw_input('Proceed?')
+    y_test_predict_array = genfromtxt('y_test_predict_array.csv')
+    y_test_predict = clf_ensemble.predict(y_test_predict_array)
+    output(y_test_predict.reshape(-1), 'dlinghu_Ensemble_002.csv')
