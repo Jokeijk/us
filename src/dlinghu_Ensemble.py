@@ -11,6 +11,7 @@ from sklearn.cross_validation import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import Ridge
 from dlinghu_functions import *
+from sklearn.ensemble import GradientBoostingClassifier
 
 
 # y_predict_collection = np.array(x_test.shape[0], len(estimators) * n_bootstrap)
@@ -89,9 +90,40 @@ rf = RandomForestClassifier(oob_score=True, n_jobs=-1, n_estimators=300,
 dt_boosted = AdaBoostClassifier(DecisionTreeClassifier(max_depth=3, max_features=100),
                                 algorithm="SAMME",
                                 n_estimators=700)
+
+
+
+
+
+# 0.9430 adaboost_005.py
+
+clf1 = AdaBoostClassifier(
+DecisionTreeClassifier(min_samples_split=500),
+ algorithm="SAMME",n_estimators=2000)
+
+# 0.9365 gradient_boost_newnew.py
+
+clf2 = GradientBoostingClassifier(
+            n_estimators=2000,
+            max_depth=3,
+            max_features=None,
+            learning_rate=0.08,
+            random_state=0)
+
+# 0.93750, adaboost_003.py
+clf3 = AdaBoostClassifier(DecisionTreeClassifier(max_depth=3,max_features=100),
+            algorithm="SAMME",
+            n_estimators=700)
+
+# 0.9395, adaboost_001.py
+clf4 = AdaBoostClassifier(DecisionTreeClassifier(max_depth=3),
+            algorithm="SAMME",
+            n_estimators=700)
+
 # estimators = [('SVM', svm), ('Logistic', lr), ('kNN-20', knn),
 # ('DT-boosted', dt_boosted)]
-estimators = [('SVM', svm), ('Logistic', lr), ('kNN-20', knn)]
+#estimators = [('SVM', svm), ('Logistic', lr), ('kNN-20', knn)]
+estimators = [('clf1', clf1), ('clf2', clf2), ('clf3', clf3),('clf4',clf4)]
 
 n_bootstrap = 10
 valid_ratio = 0.15  # use 15% training data as validation data
