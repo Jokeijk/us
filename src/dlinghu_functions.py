@@ -8,6 +8,7 @@ from sklearn.grid_search import GridSearchCV
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn import linear_model, decomposition
 from sklearn.pipeline import Pipeline
+from sklearn.metrics import accuracy_score
 
 
 def read_data():
@@ -101,3 +102,25 @@ def ada_boost(clf, x_train, y_train, n_estimators, print_cv_error=0):
         print "For the original model, in-sample score = %s" % clf.score(x_train, y_train)
         print "For the boosted model, in-sample score = %s" % clf_boost.score(x_train, y_train)
     return clf_boost
+
+
+# find the best threshold
+def find_reg_threshold(clf, x_train, y_train):
+    clf.fit(x_train, y_train)
+    threshold_list = np.arange(start=0.0, stop=1.0, step=0.05)
+    threshold_best = 0
+    accuracy_best = 0
+    y_train_predict = clf.predict(x_train)
+    for threshold in threshold_list:
+        y_train_predict_binary = np.array(y_train_predict)
+        y_train_predict_binary[y_train_predict_binary < threshold] = 0
+        y_train_predict_binary[y_train_predict_binary >= threshold] = 1
+        tmp_score = accuracy_score(y_train_predict_binary, y_train)
+        # print '%s\t%s' % (threshold, tmp_score)
+        print '{:>8} {:>8}'.format(*[threshold, tmp_score])
+        if tmp_score > accuracy_best:
+            accuracy_best = tmp_score
+            threshold_best = threshold
+            y_train_predict_binary_best = y_train_predict_binary
+    print 'best threshold = %s' % threshold_best
+    return threshold_best, y_train_predict_binary_best
