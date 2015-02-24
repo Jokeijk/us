@@ -93,7 +93,7 @@ def ensemble(clf, estimators, valid_ratio, x_train, y_train, x_test):
 
 # def majority_vote(y_predict_list):
 # y_predict_cumulative = np.zeros((y_predict_list[0].shape[0], 1))
-#     y_predict = np.zeros((y_predict_list[0].shape[0], 1))
+# y_predict = np.zeros((y_predict_list[0].shape[0], 1))
 #     for y_predict_sample in y_predict_list:
 #         y_predict_cumulative += y_predict_sample.reshape(-1, 1)
 #     y_predict[y_predict_cumulative > (len(y_predict_list) / 2)] = 1
@@ -113,35 +113,36 @@ dt_boosted = AdaBoostClassifier(DecisionTreeClassifier(max_depth=3, max_features
 
 
 # ###################################################################
-# # 0.9430 adaboost_005.py
-#
-# clf1 = AdaBoostClassifier(
-#     DecisionTreeClassifier(min_samples_split=500),
-#     algorithm="SAMME", n_estimators=2000)
-#
-# # 0.9365 gradient_boost_newnew.py
-#
-# clf2 = GradientBoostingClassifier(
-#     n_estimators=2000,
-#     max_depth=3,
-#     max_features=None,
-#     learning_rate=0.08,
-#     random_state=0)
-#
-# # 0.93750, adaboost_003.py
-# clf3 = AdaBoostClassifier(DecisionTreeClassifier(max_depth=3, max_features=100),
-#                           algorithm="SAMME",
-#                           n_estimators=700)
-#
-# # 0.9395, adaboost_001.py
-# clf4 = AdaBoostClassifier(DecisionTreeClassifier(max_depth=3),
-#                           algorithm="SAMME",
-#                           n_estimators=700)
+# 0.9430 adaboost_005.py
+
+clf1 = AdaBoostClassifier(
+    DecisionTreeClassifier(min_samples_split=500),
+    algorithm="SAMME", n_estimators=2000)
+
+# 0.9365 gradient_boost_newnew.py
+
+clf2 = GradientBoostingClassifier(
+    n_estimators=2000,
+    max_depth=3,
+    max_features=None,
+    learning_rate=0.08,
+    random_state=0)
+
+# 0.93750, adaboost_003.py
+clf3 = AdaBoostClassifier(DecisionTreeClassifier(max_depth=3, max_features=100),
+                          algorithm="SAMME",
+                          n_estimators=700)
+
+# 0.9395, adaboost_001.py
+clf4 = AdaBoostClassifier(DecisionTreeClassifier(max_depth=3),
+                          algorithm="SAMME",
+                          n_estimators=700)
 ###################################################################
 # estimators = [('SVM', svm), ('Logistic', lr), ('kNN-20', knn),
 # ('DT-boosted', dt_boosted)]
-estimators = [('SVM', svm), ('Logistic', lr), ('kNN-20', knn), ('RF', rf)]
-# estimators = [('clf1', clf1), ('clf2', clf2), ('clf3', clf3), ('clf4', clf4)]
+# estimators = [('SVM', svm), ('Logistic', lr), ('kNN-20', knn), ('RF', rf)]
+estimators = [('SVM', svm), ('Logistic', lr), ('kNN-20', knn), ('RF', rf),
+              ('clf1', clf1), ('clf2', clf2), ('clf3', clf3), ('clf4', clf4)]
 
 n_bootstrap = 10
 valid_ratio = 0.15  # use 15% training data as validation data
