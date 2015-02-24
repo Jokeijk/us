@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/dlinghu_Ensemble.py" description="y_train_predict_list = manual_bagging(estimators, ..." line="101" />
+    <bookmark url="file://$PROJECT_DIR$/dlinghu_Ensemble.py" description="y_train_predict_list = manual_bagging(estimators, ..." line="153" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0ae17c2-fb1a-41e9-98a9-7217330584b3" name="Default" comment="" />
@@ -26,27 +26,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="dlinghu_Ensemble.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dlinghu_Ensemble.py">
+      <file leaf-file-name="dlinghu_AdaBoost.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dlinghu_AdaBoost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8080808" vertical-offset="1040" max-vertical-offset="1634">
-              <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
-              <folding>
-                <element signature="e#21#34#0" expanded="true" />
-                <element signature="e#839#1608#0" expanded="false" />
-                <element signature="e#1679#1814#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1349">
+              <caret line="51" column="37" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gradient_boost_new.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gradient_boost_new.py">
+      <file leaf-file-name="dlinghu_Ensemble.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dlinghu_Ensemble.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="666" max-vertical-offset="2337">
-              <caret line="65" column="22" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.8956229" vertical-offset="1691" max-vertical-offset="2337">
+              <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
               <folding>
-                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#21#34#0" expanded="true" />
+                <element signature="e#895#1664#0" expanded="false" />
+                <element signature="e#1735#1870#0" expanded="false" />
+                <element signature="e#3442#4470#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -59,24 +58,6 @@
               <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dlinghu_functions.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dlinghu_functions.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="520" max-vertical-offset="1197">
-              <caret line="107" column="4" selection-start-line="107" selection-start-column="4" selection-end-line="107" selection-end-column="4" />
-              <folding>
-                <element signature="e#38#56#0" expanded="true" />
-                <element signature="e#424#958#0" expanded="false" />
-                <element signature="e#1046#1259#0" expanded="false" />
-                <element signature="e#1333#1504#0" expanded="false" />
-                <element signature="e#1642#2045#0" expanded="false" />
-                <element signature="e#2135#2775#0" expanded="false" />
-                <element signature="e#2888#3919#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -548,16 +529,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dlinghu_AdaBoost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="627" max-vertical-offset="1406">
-          <caret line="51" column="37" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="37" />
-          <folding>
-            <element signature="e#36#49#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/try_002.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="665">
@@ -633,6 +604,24 @@
         <state vertical-scroll-proportion="0.3838384" vertical-offset="817" max-vertical-offset="2128">
           <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding>
+            <element signature="e#0#18#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dlinghu_AdaBoost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1349">
+          <caret line="51" column="37" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradient_boost_new.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.97431505" vertical-offset="666" max-vertical-offset="2337">
+          <caret line="65" column="22" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
+          <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
@@ -640,7 +629,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dlinghu_functions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="520" max-vertical-offset="1197">
+        <state vertical-scroll-proportion="0.33278418" vertical-offset="520" max-vertical-offset="1197">
           <caret line="107" column="4" selection-start-line="107" selection-start-column="4" selection-end-line="107" selection-end-column="4" />
           <folding>
             <element signature="e#38#56#0" expanded="true" />
@@ -664,24 +653,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gradient_boost_new.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="666" max-vertical-offset="2337">
-          <caret line="65" column="22" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dlinghu_Ensemble.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8080808" vertical-offset="1040" max-vertical-offset="1634">
-          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8956229" vertical-offset="1691" max-vertical-offset="2337">
+          <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
           <folding>
             <element signature="e#21#34#0" expanded="true" />
-            <element signature="e#839#1608#0" expanded="false" />
-            <element signature="e#1679#1814#0" expanded="false" />
+            <element signature="e#895#1664#0" expanded="false" />
+            <element signature="e#1735#1870#0" expanded="false" />
+            <element signature="e#3442#4470#0" expanded="false" />
           </folding>
         </state>
       </provider>
