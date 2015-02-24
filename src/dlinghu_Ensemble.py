@@ -155,9 +155,9 @@ if __name__ == "__main__":
     ###################################################################
     # estimators = [('SVM', svm), ('Logistic', lr), ('kNN-20', knn),
     # ('DT-boosted', dt_boosted)]
-    estimators = [('SVM', svm), ('Logistic', lr), ('kNN-20', knn), ('RF', rf)]
-    # estimators = [('SVM', svm), ('Logistic', lr), ('kNN-20', knn), ('RF', rf),
-    #               ('clf1', clf1), ('clf2', clf2), ('clf3', clf3), ('clf4', clf4)]
+    # estimators = [('SVM', svm), ('Logistic', lr), ('kNN-20', knn), ('RF', rf)]
+    estimators = [('SVM', svm), ('Logistic', lr), ('kNN-20', knn), ('RF', rf),
+                  ('clf1', clf1), ('clf2', clf2), ('clf3', clf3), ('clf4', clf4)]
 
     n_bootstrap = 10
     valid_ratio = 0.15  # use 15% training data as validation data
