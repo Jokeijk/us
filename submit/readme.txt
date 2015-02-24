@@ -22,3 +22,4 @@ N/A     kNN_002.csv                dlinghu_kNN_001.py                           
 0.94300 adaboost_005.csv           adaboost_005.py                                                          -16.h
 0.94175 Ada_001.csv                yma_Ada.m  
 0.94200 Ada_001_2000.csv           yma_Ada.m (2000 tree)
+0.94100 adaboost_005_vote.csv      adaboost_005_many.py                                                     -13h
