@@ -1,73 +1,131 @@
 function BSGD
 rng(0);
+test_par = 0;   % whether test the parameters
 
 % read the data
 [userID1,movieID1,rate1] = read_data('data.txt');
-userID = unique(userID1);
-[movieID,movieName,movieGenre,Genres] = read_movie('movies.txt');
+userID = unique(userID1);  M = numel(userID);
+movieID= unique(movieID1); N = numel(movieID);
 
-% 5 fold cross-validation
-Ndata = numel(rate1);
-nf    = floor(Ndata/5);
-order = randperm(Ndata); 
-
-% parameter
-maxiter = 300;
-lambda  = [1e-1,1,10,100];
-   eta  = 1e-2;
-D = 1;
-
-
-% test for lambda
-Ein_all  = zeros(maxiter, length(lambda));
-Eout_all = zeros(maxiter, length(lambda));
-for i = 1:length(lambda)
-    for k = 1
-        out_id = order( (k-1)*nf+1 : k*nf );
-        in_id  = 1:Ndata;
-        in_id(out_id) = [];
-        
-        [M,N,Y_in]  = sparse_matrix(userID, movieID, userID1(in_id), movieID1(in_id),rate1(in_id));
-        [~,~,Y_out] = sparse_matrix(userID, movieID, userID1(out_id), movieID1(out_id),rate1(out_id));
-        
-        [~,~,~,~,~,Ein,Eout] = do_bsgd(maxiter,lambda(i),eta,D,M,N,Y_in,Y_out);
+if test_par
+    
+    % 5 fold cross-validation
+    Ndata = numel(rate1);
+    nf    = floor(Ndata/5);
+    order = randperm(Ndata);
+    
+    % parameter
+    maxiter = 100;
+    lambda  = 10:5:40;
+    eta  = 1e-2;
+    D = 20;
+    
+    % test for lambda
+    Ein_all  = zeros(maxiter, length(lambda));
+    Eout_all = zeros(maxiter, length(lambda));
+    for i = 1:length(lambda)
+        for k = 1
+            out_id = order( (k-1)*nf+1 : k*nf );
+            in_id  = 1:Ndata;
+            in_id(out_id) = [];
+            
+            Y_in  = [userID1(in_id) movieID1(in_id),rate1(in_id)];
+            Y_out = [userID1(out_id), movieID1(out_id),rate1(out_id)];
+            
+            [~,~,~,~,~,Ein,Eout] = do_bsgd(maxiter,lambda(i),eta,D,M,N,Y_in,Y_out);
+        end
+        Ein_all(:,i)  = Ein;
+        Eout_all(:,i) = Eout;
     end
-    Ein_all(:,i)  = Ein;
-    Eout_all(:,i) = Eout;
+    % write out the result
+    dlmwrite('Ein_lambda.txt',Ein_all,'delimiter',' ','precision',8);
+    dlmwrite('Eout_lambda.txt',Eout_all,'delimiter',' ','precision',8);
+    
+    [Ein_min,~]  = min(Ein_all,[],1);
+    [Eout_min,min_id] = min(Eout_all,[],1);
+    
+    % find best lamda
+    [Eout_best,best_id] = min(Eout_min);
+    lambda_best = lambda(best_id);
+    
+    % find best iteration number
+    iter_best = min_id(best_id);
+    
+    fprintf('Best lamda=%f, Best iter=%d\n',lambda_best,iter_best);
+    % plot the result
+    figure(1);
+    % plot E vs lambda
+    subplot(121)
+    plot(lambda,Ein_min,'ro-');
+    hold on;
+    plot(lambda,Eout_min,'bo-');
+    plot(lambda_best, Eout_best,'b*');
+    xlabel('\lambda');
+    ylabel('RMSE');
+    legend('Ein','Eout');
+    hold off;
+    set(gca,'fontsize',13)
+    grid on;box on;
+    hold off;
+    
+    % plot E vs iter for best lambda
+    subplot(122)
+    plot(1:maxiter,Ein_all(:,best_id),'r-');
+    hold on;
+    plot(1:maxiter,Eout_all(:,best_id),'b-');
+    plot(iter_best,Eout_best,'b*');
+    xlabel('# of iteration');
+    ylabel('RMSE');
+    legend('Ein','Eout');
+    text(5,1.04,['\lambda=',num2str(lambda_best)],'fontsize',13);
+    set(gca,'fontsize',13)
+    grid on; box on;
+    hold off;
+    
+    
+else
+    iter_best = 100;
+    lambda_best = 25;
 end
-% write out the result
-dlmwrite('Ein_lambda.txt',Ein_all,'delimiter',' ','precision',8);
-dlmwrite('Eout_lambda.txt',Eout_all,'delimiter',' ','precision',8);
 
-figure(1)
-subplot(121)
-plot(1:maxiter,Ein_all);
-title('Ein');
-subplot(122)
-plot(1:maxiter,Eout_all);
-title('Eout');
-
-
-pause;
-
-
-
-
-
-% Final run, the paramter has been checked with cross-validation
-% parameters
-maxiter = 200;
-lambda  = 1;
+%######################################
+% final run
+%######################################
+maxiter = iter_best;
+lambda  = lambda_best;
    eta  = 1e-2;
-k = 20;
+D = 20;
 
 % create data sparse matrix
-[M,N,Y_s] = sparse_matrix(userID, movieID, userID1, movieID1,rate1);
+Y_s = [userID1 movieID1 rate1];
+
 % do the Bias-SGD
-[U,V,a,b,mu,Ein,Eout] = do_bsgd(maxiter,lambda,eta,k,M,N,Y_s);
+[U,V,a,b,mu,Ein,~] = do_bsgd(maxiter,lambda,eta,D,M,N,Y_s);
+
+% write out the result
+fid = fopen('U.out','w+');
+fprintf(fid,'%f',U);
+fclose(fid);
+fid = fopen('V.out','w+');
+fprintf(fid,'%f',V);
+fclose(fid);
+fid = fopen('a.out','w+');
+fprintf(fid,'%f',a);
+fclose(fid);
+fid = fopen('b.out','w+');
+fprintf(fid,'%f',b);
+fclose(fid);
+fid = fopen('mu.out','w+');
+fprintf(fid,'%f',mu);
+fclose(fid);
+fid = fopen('Ein.out','w+');
+fprintf(fid,'%f',Ein);
+fclose(fid);
 
 
-pause;
+save('BSGD_out');
+
+
 end
 
 % Bias-SGD
@@ -78,6 +136,7 @@ end
 
 if nargin < 8
     iftest = 0;
+    Eout = NaN;
 else
     iftest = 1;
 end
@@ -90,10 +149,10 @@ if iftest
 end
 
 % initialization
-U = zeros(D,M) + 1;
-V = zeros(D,N) + 1;
-a = zeros(M,1);
-b = zeros(N,1);
+U = rand(D,M);
+V = rand(D,N);
+a = rand(M,1);
+b = rand(N,1);
 mu= mean(Y_in(:,3));
 
 % start iteration
@@ -135,7 +194,6 @@ for i = 1:maxiter
     
     % decrease the step size
     eta = eta * 0.9;
-    %eta = max(eta * 0.9, 2e-4);
 end % end of iteration
 end
 

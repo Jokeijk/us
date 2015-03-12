@@ -5,7 +5,7 @@ if nargin < 1
 end
 
 fid = fopen(filename);
-m = textscan(fid,'%d %d %f');
+m = textscan(fid,'%f %f %f');
 fclose(fid);
 
 userID = m{1};
