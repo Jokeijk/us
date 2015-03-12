@@ -45,7 +45,7 @@ $U_{l}$ is updated iteratively through gradient method:
 U_{l}^{n+1}=U_{l}^{n}-\eta \frac{\partial{J}}{\partial{U_{l}}}
 \end{equation*}
 
-In BSGD, for each iteration, we randomly loop through all the data and update $U_{l}$ with "error term" only in the loop, then after the loop, correct $U_{l}$ with "norm term".
+In BSGD, for each iteration, we randomly loop through all the data and update $U_{l}$ with "error term" only in the loop, then after the loop, correct $U_{l}$ with "norm term". We can do $V_{k}$, $a_{l}$ and $b_{k}$ similarly.
 
 \subsection{Visualization}
 
@@ -56,7 +56,7 @@ To solve the optimization problem with Bias-SGD, we simply divide the data by 5 
 \begin{figure}[h!]
   \centering
       \includegraphics[width=1.0\textwidth]{testparameter}
-  \caption{RMS error vs. Parameter}
+  \caption{RMS error (RMSE) vs. Parameter. Left: For different $\lambda$, we plot the minimum RMSE in 100 iterations. We see that $\lambda=25$ is the optimum choice. Right: For $\lambda=25$, we plot the RMSEs in 100 iterations. We see that RMSE decays slowly after about 15 iterations. We simply choose the number of iteration as 100 for final run.}
 \end{figure}
 
 
