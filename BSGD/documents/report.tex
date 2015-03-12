@@ -22,8 +22,10 @@
 \maketitle
 %\tableofcontents
 
+% Introduction
 \section{Introduction}
 
+% Algorithm
 \section{Algorithm}
 \subsection{Optimization}
 In the code (BSGD.m), we solve the following optimization problem:
@@ -36,7 +38,14 @@ where $Q_{i,j}=(u_i^T v_j + a_i + b_j +\mu-Y_{i,j})$. Then,
 \begin{equation*}
 \frac{\partial{J}}{\partial{U_{l}}}=\lambda U_{l}+\sum_{(i,j)\in S}2Q_{i,j}1_{i=l}V_{j}
 \end{equation*}
+We call the first term in the gradient as "norm term", and the second term "error term".
 
+$U_{l}$ is updated iteratively through gradient method:
+\begin{equation*}
+U_{l}^{n+1}=U_{l}^{n}-\eta \frac{\partial{J}}{\partial{U_{l}}}
+\end{equation*}
+
+In BSGD, for each iteration, we randomly loop through all the data and update $U_{l}$ with "error term" only in the loop, then after the loop, correct $U_{l}$ with "norm term".
 
 \subsection{Visualization}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  11 MAR 2015 23:37
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  12 MAR 2015 11:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -248,51 +248,47 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+[1
+
+{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Package epstopdf Info: Source file: <testparameter.eps>
-(epstopdf)                    date: 2015-03-11 23:08:26
+(epstopdf)                    date: 2015-03-11 23:59:11
 (epstopdf)                    size: 107121 bytes
 (epstopdf)             Output file: <testparameter-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-03-11 23:13:59
+(epstopdf)                    date: 2015-03-11 23:59:11
 (epstopdf)                    size: 9606 bytes
 (epstopdf)             Command: <repstopdf --outfile=testparameter-eps-converte
 d-to.pdf testparameter.eps>
-(epstopdf)             \includegraphics on input line 49.
+(epstopdf)             \includegraphics on input line 58.
 Package epstopdf Info: Output file is already uptodate.
 
-<testparameter-eps-converted-to.pdf, id=1, 672.5125pt x 348.30125pt>
+<testparameter-eps-converted-to.pdf, id=15, 672.5125pt x 348.30125pt>
 File: testparameter-eps-converted-to.pdf Graphic file (type pdf)
 
 <use testparameter-eps-converted-to.pdf>
 Package pdftex.def Info: testparameter-eps-converted-to.pdf used on input line 
-49.
+58.
 (pdftex.def)             Requested size: 418.25368pt x 216.61949pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[1
-
-{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2 <./testparameter-eps-converted-to.pdf>] (./report.aux) ) 
+ [2 <./testparameter-eps-converted-to.pdf>] (./report.aux) ) 
 Here is how much of TeX's memory you used:
  2588 strings out of 493315
  35558 string characters out of 6137904
- 103486 words of memory out of 5000000
+ 104486 words of memory out of 5000000
  6010 multiletter control sequences out of 15000+600000
  9626 words of font info for 35 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,6n,23p,560b,224s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/
-2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2
-013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/20
-13/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/201
-3/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2013/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2013/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2013/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2013/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on report.pdf (2 pages, 98125 bytes).
+</usr/local/texlive
+/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/
+2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2
+013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/20
+13/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2013
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2013/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2013/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2013/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on report.pdf (2 pages, 99593 bytes).
 PDF statistics:
  57 PDF objects out of 1000 (max. 8388607)
  40 compressed objects within 1 object stream
