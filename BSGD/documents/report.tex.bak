@@ -38,21 +38,20 @@ where $Q_{i,j}=(u_i^T v_j + a_i + b_j +\mu-Y_{i,j})$. Then,
 \begin{equation*}
 \frac{\partial{J}}{\partial{U_{l}}}=\lambda U_{l}+\sum_{(i,j)\in S}2Q_{i,j}1_{i=l}V_{j}
 \end{equation*}
-
-We call the first term in the gradient as ``norm term'', and the second term ``error term''.
+We call the first term in the gradient as "norm term", and the second term "error term".
 
 $U_{l}$ is updated iteratively through gradient method:
 \begin{equation*}
 U_{l}^{n+1}=U_{l}^{n}-\eta \frac{\partial{J}}{\partial{U_{l}}}
 \end{equation*}
 
-In BSGD, for each iteration, we randomly loop through all the data and update $U_{l}$ with ``error term'' only in the loop, then after the loop, correct $U_{l}$ with ``norm term''. We can do $V_{k}$, $a_{l}$ and $b_{k}$ similarly.
+In BSGD, for each iteration, we randomly loop through all the data and update $U_{l}$ with "error term" only in the loop, then after the loop, correct $U_{l}$ with "norm term". We can do $V_{k}$, $a_{l}$ and $b_{k}$ similarly.
 
 \subsection{Visualization}
 
 \section{Implementation}
-\subsection{Find U \& V}
-To solve the optimization problem with Bias-SGD, we simply divide the data by 5 fold, use 4 folds as training data and 1 fold as test data to find the optimal damping parameter $\lambda$  and number of iteration. The step size $\eta$ is chosen as 1e-2 and is decreased by 10\% for each iteration. From the results shown below (Fig. 1), we choose $\lambda=25$. For $\lambda=25$, the out-of-sample error is still decreasing at the 100th iteration (Fig. 1), however, the improvement is minimal. Therefore, we choose the number of iteration as 100.
+\subsection{Find U \& V} 
+To solve the optimization problem with Bias-SGD, we simply divide the data by 5 fold, use 4 folds as training data and 1 fold as test data to find the optimal damping parameter $\lambda$  and number of iteration. The step size $\eta$ is chosen as 1e-2 and is decreased by 10\% for each iteration. From the results shown below (Fig. 1), we choose $\lambda=25$. For $\lambda=25$, the out-of-sample error is still decreasing at the 100th iteration (Fig. 1), however, the improvement is minimal. Therefore, we choose the number of iteration as 100.   
 
 \begin{figure}[h!]
   \centering
@@ -65,4 +64,4 @@ To solve the optimization problem with Bias-SGD, we simply divide the data by 5 
 
 
 
-\end{document} 
+\end{document}
