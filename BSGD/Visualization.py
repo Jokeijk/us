@@ -26,9 +26,14 @@ genre_list = ['Action', 'Adventure',
               'Drama', 'Fantasy', 'Film-Noir', 'Horror', 'Musical',
               'Mystery', 'Romance', 'Sci-Fi', 'Thriller', 'War', 'Western',
               'Unknown']
-color_list = ['Red', 'Blue', 'Green', 'Yellow', 'Magenta', 'Gold',
-              'SlateBlue', 'Purple', 'OrangeRed', 'Olive', 'Maroon', 'LightGreen',
-              'Cyan', 'Wheat', 'Brown', 'Gray', 'DarkViolet', 'YellowGreen',
+color_list = ['Red', 'Blue', 'Gold', 'Lime',
+              # 'Green',
+              'Gray',
+              'Magenta',
+              'SlateBlue',
+              'Yellow',
+              'Purple', 'OrangeRed', 'Olive', 'Maroon', 'LightGreen',
+              'Cyan', 'Wheat', 'Brown', 'DarkViolet', 'YellowGreen',
               'Black']
 movie_all['genre'] = ''
 for genre in genre_list:
@@ -70,51 +75,73 @@ star_trek = np.array([221, 226, 227, 228, 229])
 free_willy = np.array([34, 77])
 god_father = np.array([126, 186])
 batman = np.array([28, 230, 253, 402])
-# terminator = np.array()
+terminator = np.array([95, 194])
+hepburn = np.array([130, 484, 486])
+series_list = [star_trek, free_willy, god_father, batman, terminator, hepburn]
+label_list = ['Star Trek', 'Free Willy', 'Godfather', 'Batman', 'Terminator',
+              'Hepburn']
+# seen = yisong
 seen = np.array(list(
     set(list(linghu[0] - 1) +
         list(dunzhu[0] - 1) +
         list(yiran2[0] - 1) +
         list(yiran[0] - 1)).intersection(popular_index).union(
-        set(list(star_trek) + list(free_willy) + list(god_father) + list(batman))
+        set(list(star_trek) +
+            list(free_willy) +
+            list(god_father) +
+            list(batman) +
+            list(terminator) +
+            list(hepburn))
     )))
+# seen = np.array(list(set(list(star_trek) + list(free_willy) + list(god_father) + list(batman) + list(terminator))))
 
-print list(yiran2[0]-1)
-# seen = yisong
 movie_seen = movie_all[['title', 'genre']].iloc[seen]
+
+seen_raw = pd.read_csv('ids.csv')[['movie_id', 'title', 'genre']]
+movie_seen = seen_raw[['title', 'genre']]
+seen = np.array(seen_raw['movie_id']-1)
+
+
 genre_sorted = movie_seen.groupby('genre').agg(
     'count').sort('title', ascending=False).reset_index()['genre']
 
 font_size = 12
+genre_sorted = ['Romance', 'Sci-Fi', 'Crime']
+color_list = ['Red', 'Blue', 'Lime']
 for i in xrange(len(genre_sorted)):
     genre_tmp = genre_sorted[i]
-    movie_seen_tmp = movie_seen[movie_seen['genre'] == genre_tmp]
-    seen_tmp = np.array(movie_seen_tmp.index)
+    # movie_seen_tmp = movie_seen[movie_seen['genre'] == genre_tmp]
+    movie_seen_tmp = seen_raw[seen_raw['genre'] == genre_tmp]
+    # seen_tmp = np.array(movie_seen_tmp.index)
+    seen_tmp = np.array(movie_seen_tmp['movie_id']-1)
     plt.scatter(V_tilde[0, seen_tmp], V_tilde[1, seen_tmp],
-                marker='o', s=50, color=color_list[i], label=genre_tmp)
-offset = 0
-for label, x, y in zip(movie_seen[['title']].as_matrix(),
-                       V_tilde[0, seen].transpose(),
-                       V_tilde[1, seen].transpose()):
-    # label_new = label[0][:-6].rstrip().rstrip(', The').rstrip(', A')
-    label_new = re.sub(', A', '', re.sub(', The', '', label[0][:-6].rstrip()))
-    print label_new
-    plt.annotate(
-        label_new,
-        xy=(x, y), xytext=(-offset, offset),
-        size=font_size,
-        textcoords='offset points', ha='right', va='bottom',
-        # bbox=dict(boxstyle='round,pad=0.2', fc='yellow', alpha=0.5),
-        # arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=0')
+                marker='o', s=300,
+                color=color_list[i],
+                label=genre_tmp
     )
+    offset = 0
+    for label, x, y in zip(movie_seen_tmp[['title']].as_matrix(),
+                           V_tilde[0, seen_tmp].transpose(),
+                           V_tilde[1, seen_tmp].transpose()):
+        # label_new = label[0][:-6].rstrip().rstrip(', The').rstrip(', A')
+        label_new = re.sub(', A', '', re.sub(', The', '', label[0][:-6].rstrip()))
+        print label_new
+        plt.annotate(
+            label_new,
+            xy=(x, y), xytext=(-offset, offset),
+            size=font_size,
+            textcoords='offset points', ha='right', va='bottom',
+            # bbox=dict(boxstyle='round,pad=0.2', fc='yellow', alpha=0.5),
+            # arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=0')
+        )
 plt.axhline()
 plt.axvline()
 plt.legend(loc=1, scatterpoints=1, prop={'size': font_size})
 plt.show()
 
 
-#exit()
-## now for each genre
+# exit()
+# # now for each genre
 #for i in xrange(len(genre_list)):
 #    genre_tmp = genre_list[i]
 #    print genre_tmp
@@ -127,3 +154,34 @@ plt.show()
 #    plt.axhline()
 #    plt.axvline()
 #    fig.savefig(r'D:\Dropbox\CS 155\Projects\Git\us\BSGD\figures\%s.png' % genre_tmp)
+
+for i in xrange(len(series_list)):
+    series = series_list[i]
+    movie_seen_tmp = movie_all.iloc[series, :]
+    # seen_tmp = np.array(movie_seen_tmp.index)
+    seen_tmp = series
+    plt.scatter(V_tilde[0, seen_tmp], V_tilde[1, seen_tmp],
+                marker='o', s=50,
+                color=color_list[i],
+                label=label_list[i]
+    )
+    for label, x, y in zip(movie_seen_tmp[['title']].as_matrix(),
+                           V_tilde[0, seen_tmp].transpose(),
+                           V_tilde[1, seen_tmp].transpose()):
+        label_new = re.sub(', A', '', re.sub(', The', '', label[0][:-6].rstrip()))
+        print label_new
+        plt.annotate(
+            label_new,
+            xy=(x, y), xytext=(-offset, offset),
+            size=font_size,
+            textcoords='offset points', ha='right', va='bottom',
+            color = color_list[i]
+            # bbox=dict(boxstyle='round,pad=0.2', fc='yellow', alpha=0.5),
+            # arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=0')
+        )
+
+plt.axhline()
+plt.axvline()
+plt.legend(loc=1, scatterpoints=1, prop={'size': font_size})
+plt.show()
+
