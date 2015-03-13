@@ -58,9 +58,10 @@ U_tilde = A[:, :2].transpose().dot(U)
 linghu = pd.read_table('linghu.txt', header=None)
 dunzhu = pd.read_table('dunzhu.txt', header=None)
 yiran = pd.read_table('yiran.txt', header=None)
+yiran2 = pd.read_table('yiran_pick.txt', header=None)
 
 # now visualize the most popular movies
-N = 100
+N = 500
 popular_index = set(find_popular(movie_all, N))
 
 # now consider specific movie collections
@@ -73,9 +74,11 @@ batman = np.array([28, 230, 253, 402])
 seen = np.array(list(
     set(list(linghu[0] - 1) +
         list(dunzhu[0] - 1) +
+        list(yiran2[0] - 1) +
         list(yiran[0] - 1)).intersection(popular_index).union(
         set(list(star_trek) + list(free_willy) + list(god_father) + list(batman))
     )))
+print list(yiran2[0]-1)
 # seen = yisong
 movie_seen = movie_all[['title', 'genre']].iloc[seen]
 genre_sorted = movie_seen.groupby('genre').agg(
@@ -108,16 +111,18 @@ plt.axvline()
 plt.legend(loc=1, scatterpoints=1, prop={'size': font_size})
 plt.show()
 
-# now for each genre
-for i in xrange(len(genre_list)):
-    genre_tmp = genre_list[i]
-    print genre_tmp
-    movie_tmp = movie_all[movie_all['genre'] == genre_tmp]
-    index_tmp = np.array(movie_tmp.index)
-    fig = plt.figure()
-    plt.scatter(V_tilde[0, index_tmp], V_tilde[1, index_tmp],
-                marker='o', s=50, color=color_list[i], label=genre_tmp)
-    plt.axis([-1, 1, -1, 1])
-    plt.axhline()
-    plt.axvline()
-    fig.savefig(r'D:\Dropbox\CS 155\Projects\Git\us\BSGD\figures\%s.png' % genre_tmp)
+
+#exit()
+## now for each genre
+#for i in xrange(len(genre_list)):
+#    genre_tmp = genre_list[i]
+#    print genre_tmp
+#    movie_tmp = movie_all[movie_all['genre'] == genre_tmp]
+#    index_tmp = np.array(movie_tmp.index)
+#    fig = plt.figure()
+#    plt.scatter(V_tilde[0, index_tmp], V_tilde[1, index_tmp],
+#                marker='o', s=50, color=color_list[i], label=genre_tmp)
+#    plt.axis([-1, 1, -1, 1])
+#    plt.axhline()
+#    plt.axvline()
+#    fig.savefig(r'D:\Dropbox\CS 155\Projects\Git\us\BSGD\figures\%s.png' % genre_tmp)
