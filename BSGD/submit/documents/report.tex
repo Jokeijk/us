@@ -80,41 +80,42 @@ To solve the optimization problem with Bias-SGD, we simply divide the data by 5 
 
 
 \subsection{Projection}
-To visualize the movie factor V, we choose 101 movies which we are familiar with. We project them, and color them with their tags (category). Since there could be several tags for one movie in the original data, we re-tag them uniquely according to our own understanding. The result is shown in (\Cref{fig:all}). As an example, we show the "Romance", "Sci-Fi" and "Crime" clusters in \Cref{fig:cluster}. We also show several representative series ("Star Trek", "Free Willy", "Godfather", "Batman", "Terminator", and "Hepburn") in \Cref{fig:series}.
+To visualize the movie factor V, first we choose 101 movies which we are familiar with. We project them, and color them with their tags (category). Since there could be several tags for one movie in the original data, we re-tag them uniquely according to our own understanding. The result is shown in (\Cref{fig:all}). We observe several patterns. As an example, we show the "Romance", "Sci-Fi" and "Crime" clusters in \Cref{fig:cluster}. We also show several representative movie series ("Star Trek", "Free Willy", "Godfather", "Batman", "Terminator", and "Hepburn") in \Cref{fig:series}.
 
 
 \begin{figure}[h!]
   \centering
       \includegraphics[width=\textwidth]{1_All_Movies_Seen-crop.pdf}
-  \caption{Projection of movie factor}
+  \caption{Projection of 101 selected movies.}
   \label{fig:all}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
       \includegraphics[width=\textwidth]{2_Three_Clusters_with_Name_adjust-crop.pdf}
-  \caption{Projection of movie factor}
+  \caption{Projection of three representative movie catalogs.}
   \label{fig:cluster}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
       \includegraphics[width=\textwidth]{3_Series-crop.pdf}
-  \caption{Projection of movie factor}
+  \caption{Projection of several movie series.}
   \label{fig:series}
 \end{figure}
 
 
-The user factor is projected in \Cref{fig:user}. Because we do not have any information about the users, we cannot discuss it further.
+The user factor is projected in \Cref{fig:U}. Because we do not have any information about the users, we cannot discuss it further.
 \begin{figure}[h!]
   \centering
-      \includegraphics[width=\textwidth]{U-crop.pdf}
+      \includegraphics[width=0.5\textwidth]{U-crop.pdf}
   \caption{Projection of U}
   \label{fig:U}
 \end{figure}
 
 \clearpage
 \section{Discussions and Conclusions}
+
 
 
 
