@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
 \usepackage{graphicx}
+\usepackage{cleveref}
 \geometry{a4paper} % or letter or a5paper or ... etc
 % \geometry{landscape} % rotated page geometry
 
@@ -28,9 +29,9 @@ In this project, the data we tackle with are the user ratings of the movies, and
 \begin{equation*}
 Y_{M\times N} = U_{K\times M}^{T} V_{K\times N}
 \end{equation*}
-where M is the number of users, N is the number of movies, Y is the rating matrix, U and V are the latent factors. 
+where M is the number of users, N is the number of movies, Y is the sparse rating matrix, U and V are the latent factors. 
 
-We first solve for U and V using Bias-Stochastic Gradient Descent (BSGD) method, and then, visualize U and V through projection.  
+We first solve for U and V using Bias-Stochastic Gradient Descent (BSGD) method, and then, visualize U and V through PCA.  (...)
 
 % Algorithm
 \section{Algorithm}
@@ -64,22 +65,34 @@ The first two columns of A correspond to best 2-dimensional projection of movies
 
 Then, we project every movie ($V_{1:N}$) and user ($U_{1:M}$) using $A_{1:2}$:
 \begin{eqnarray*}
-\tilde{V}=A_{1:2}^{T} V \in Re^{2\times N}\\
-\tilde{U}=A_{1:2}^{T} U \in Re^{2\times N}
+\tilde{V}=A_{1:2}^{T} V \in R^{2\times N}\\
+\tilde{U}=A_{1:2}^{T} U \in R^{2\times N}
 \end{eqnarray*}
 
 \section{Implementation}
 \subsection{Find U \& V (BSGD.m)}
-To solve the optimization problem with Bias-SGD, we simply divide the data by 5 fold, use 4 folds as training data and 1 fold as test data to find the optimal damping parameter $\lambda$  and number of iteration. The step size $\eta$ is chosen as 1e-2 and is decreased by 10\% for each iteration. From the results shown below (Fig. 1), we choose $\lambda=25$. For $\lambda=25$, the out-of-sample error is still decreasing at the 100th iteration (Fig. 1), however, the improvement is minimal. Therefore, we choose the number of iteration as 100.
+To solve the optimization problem with Bias-SGD, we simply divide the data by 5 fold, use 4 folds as training data and 1 fold as test data to find the optimal damping parameter $\lambda$  and number of iteration. The step size $\eta$ is chosen as 1e-2 and is decreased by 10\% for each iteration. From the results shown below (\Cref{fig:test}), we choose $\lambda=25$. For $\lambda=25$, the out-of-sample error is still decreasing at the 100th iteration (\Cref{fig:test}), however, the improvement is minimal. Therefore, we choose the number of iteration as 100.
 
 \begin{figure}[h!]
   \centering
       \includegraphics[width=1.0\textwidth]{testparameter}
   \caption{RMS error (RMSE) vs. Parameter. Left: For different $\lambda$, we plot the minimum RMSE in 100 iterations. We see that $\lambda=25$ is the optimum choice. Right: For $\lambda=25$, we plot the RMSEs in 100 iterations. We see that RMSE decays slowly after about 15 iterations. We simply choose the number of iteration as 100 for final run.}
+  \label{fig:test}
 \end{figure}
 
 
 \subsection{Projection}
+First, we choose 101 movies which we are familiar with. We project them, and color them with their tags (category). We use the last one if they have several tags in the original data. For all the movies in the data, we also do the projections for each category. We find that, for most categories, the result is not very concerntrated. It's because one category may contain quite different movies.
+
+Therefore, for the 101 movies, we re-tag them uniquely according to our own understanding. The result is shown in (). We also pick ? representative series, and show them in (). 
+
+We also project the user factor in ().
+\begin{figure}[h!]
+  \centering
+      \includegraphics[width=0.8\textwidth]{U}
+  \caption{Projection of U}
+  \label{fig:U}
+\end{figure}
 
 \section{Discussions and Conclusions}
 
