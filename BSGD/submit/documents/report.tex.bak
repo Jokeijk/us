@@ -1,9 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage[margin=1in]{geometry} % see geometry.pdf on how to lay out the page. There's lots.
 \usepackage{graphicx}
-%\usepackage[demo]{graphicx}
 \usepackage{cleveref}
-\usepackage{subfig}
 
 % See the ``Article customise'' template for come common customisations
 
@@ -29,14 +27,14 @@ In this project, the data we tackle with are the user ratings of the movies, and
 \begin{equation*}
 Y_{M\times N} = U_{K\times M}^{T} V_{K\times N}
 \end{equation*}
-where $M$ is the number of users, $N$ is the number of movies, $Y$ is the sparse rating matrix, $U$ and $V$ are the latent factors.
+where M is the number of users, N is the number of movies, Y is the sparse rating matrix, U and V are the latent factors. 
 
-We first solve for $U$ and $V$ using Bias-Stochastic Gradient Descent (BSGD) method, and then, visualize $U$ and $V$ through PCA.
+We first solve for U and V using Bias-Stochastic Gradient Descent (BSGD) method, and then, visualize U and V through PCA.
 
 % Algorithm
 \section{Algorithm}
 \subsection{Optimization}
-To solve for the latent factors $U$ and V, we solve the following optimization problem:
+To solve for the latent factors U and V, we solve the following optimization problem:
 \begin{equation*}
 \argmin_{U,V,a,b}\frac{\lambda}{2}\left(\norm{U}^2+\norm{V}^2+\norm{a}^2+\norm{b}^2\right)+
 \sum_{(i,j)\in S}\left(  Q_{i,j}  \right)^2
@@ -57,11 +55,11 @@ U_{l}^{n+1}=U_{l}^{n}-\eta \frac{\partial{J}}{\partial{U_{l}}}
 In BSGD, for each iteration, we randomly loop through all the data and update $U_{l}$ with ``error term'' only in the loop, then after the loop, correct $U_{l}$ with ``norm term''. We can do $V_{k}$, $a_{l}$ and $b_{k}$ similarly.
 
 \subsection{Visualization}
-We project $U$ and $V$ to 2 dimensions and visualize them. First, we compute SVD of V:
+We project U and V to 2 dimensions and visualize them. First, we compute SVD of V:
 \begin{equation*}
 V=A\Sigma B^{T}
 \end{equation*}
-The first two columns of $A$ correspond to best 2-dimensional projection of movies V.
+The first two columns of A correspond to best 2-dimensional projection of movies V.
 
 Then, we project every movie ($V_{1:N}$) and user ($U_{1:M}$) using $A_{1:2}$:
 \begin{eqnarray*}
@@ -70,10 +68,10 @@ Then, we project every movie ($V_{1:N}$) and user ($U_{1:M}$) using $A_{1:2}$:
 \end{eqnarray*}
 
 \section{Implementation}
-\subsection{Find $U$ \& $V$ (BSGD.m)}
+\subsection{Find U \& V (BSGD.m)}
 To solve the optimization problem with Bias-SGD, we simply divide the data by 5 fold, use 4 folds as training data and 1 fold as test data to find the optimal damping parameter $\lambda$  and number of iteration. The step size $\eta$ is chosen as 1e-2 and is decreased by 10\% for each iteration. From the results shown below (\Cref{fig:test}), we choose $\lambda=25$. For $\lambda=25$, the out-of-sample error is still decreasing at the 100th iteration (\Cref{fig:test}), however, the improvement is minimal. Therefore, we choose the number of iteration as 100.
 
-\begin{figure}[ht!]
+\begin{figure}[h!]
   \centering
       \includegraphics[width=1.0\textwidth]{testparameter-crop.pdf}
   \caption{RMS error (RMSE) vs. Parameter. Left: For different $\lambda$, we plot the minimum RMSE in 100 iterations. We see that $\lambda=25$ is the optimum choice. Right: For $\lambda=25$, we plot the RMSEs in 100 iterations. We see that RMSE decays slowly after about 15 iterations. We simply choose the number of iteration as 100 for final run.}
@@ -81,43 +79,34 @@ To solve the optimization problem with Bias-SGD, we simply divide the data by 5 
 \end{figure}
 
 
-\subsection{Projection (Visualization.py)}
-To visualize the movie factor V, first we choose 101 movies which we are familiar with. We project them, and color them with their tags (category). Since there could be several tags for one movie in the original data, we re-tag them uniquely according to our own understanding. The result is shown in (\Cref{fig:all}). We observe several patterns. As an example, we show the ``Romance'', ``Sci-Fi'' and ``Crime'' clusters in \Cref{fig:cluster}. We also show several representative movie series (``Star Trek'', ``Free Willy'', ``Godfather'', ``Batman'', ``Terminator'', and ``Hepburn'') in \Cref{fig:series}. We also visualized different genres in the entire movie database, and several of them are showed in \Cref{fig:genres}.
+\subsection{Projection}
+To visualize the movie factor V, first we choose 101 movies which we are familiar with. We project them, and color them with their tags (category). Since there could be several tags for one movie in the original data, we re-tag them uniquely according to our own understanding. The result is shown in (\Cref{fig:all}). We observe several patterns. As an example, we show the "Romance", "Sci-Fi" and "Crime" clusters in \Cref{fig:cluster}. We also show several representative movie series ("Star Trek", "Free Willy", "Godfather", "Batman", "Terminator", and "Hepburn") in \Cref{fig:series}.
 
 
-\begin{figure}[ht!]
+\begin{figure}[h!]
   \centering
       \includegraphics[width=\textwidth]{1_All_Movies_Seen-crop.pdf}
   \caption{Projection of 101 selected movies.}
   \label{fig:all}
 \end{figure}
 
-\begin{figure}[ht!]
+\begin{figure}[h!]
   \centering
       \includegraphics[width=\textwidth]{2_Three_Clusters_with_Name_adjust-crop.pdf}
   \caption{Projection of three representative movie catalogs.}
   \label{fig:cluster}
 \end{figure}
 
-\begin{figure}[ht!]
+\begin{figure}[h!]
   \centering
       \includegraphics[width=\textwidth]{3_Series-crop.pdf}
   \caption{Projection of several movie series.}
   \label{fig:series}
 \end{figure}
 
-\begin{figure}[ht!]
-\subfloat[Romance]{\includegraphics[width = 2.2in]{5_Romance}}
-\subfloat[Documentary]{\includegraphics[width = 2.2in]{4_Documentary}}
-\subfloat[War]{\includegraphics[width = 2.2in]{6_War}}
-\caption{}
-\label{fig:genres}
-\end{figure}
-
-
 
 The user factor is projected in \Cref{fig:U}. Because we do not have any information about the users, we cannot discuss it further.
-\begin{figure}[ht!]
+\begin{figure}[h!]
   \centering
       \includegraphics[width=0.5\textwidth]{U-crop.pdf}
   \caption{Projection of U}
@@ -126,14 +115,8 @@ The user factor is projected in \Cref{fig:U}. Because we do not have any informa
 
 \clearpage
 \section{Discussions and Conclusions}
-From \Cref{fig:all} it's hard to find obvious patterns that can be easily interpreted by human, but we did manage to extract some useful information from it. \Cref{fig:cluster} clearly shows that the ``Romance'', ``Sci-Fi'' and ``Crime'' movies formed three clusters which can (more or less) be separated from each other. What's more interesting is that the three genres were picked by three team members respectively, which means our different movie preference can indeed be visualized. The pattern is much more clear compared to \Cref{fig:genres}, which uses all the data, including popular movies and movies that few people ever rated, and hence has much more noise and gives less reliable results.
-
-From \Cref{fig:series} shows that movies in the same series are relatively close to each other on the 2-D plot, which make sense since they're usually shot by the same group of people, and have similar stories to tell. Moreover, the movies starring the same actor can be close to each other on the 2-D plot as well, and in \Cref{fig:series} we took Audrey Hepburn as an example.
-
-We can't say too much about the user (see \Cref{fig:U}) since the only thing we know about them are the ratings they gave. One way to work on the user projection is to cluster them, and try to extract information out of it (i.e. Children or Adult? Male or Female?). However since we don't have the labels, all the conjectures can not be proved or disapproved. Although we can find the users which lie closely to ``Romance'' movies on the plot like ``Romance'' movies, but the users which lie further in the direction like ``Romance'' movies even more so the visualization won't help much. We didn't seek to do more based on \Cref{fig:U}.
-
-To summarize, yes, we can visualize SVD algorithm and draw some useful basic conclusions. However, since each movie is only represented by two values in the plot, the signal/noise ratio is relatively low, and we shouldn't try to over-interpret (over-fit) the visualization.
 
 
 
-\end{document}
+
+\end{document} 

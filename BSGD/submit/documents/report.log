@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.3.18)  13 MAR 2015 13:02
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.3.18)  13 MAR 2015 13:55
 entering extended mode
 **D:/Dropbox/CS*155/Projects/Git/us/BSGD/submit/documents/report.tex
 ("D:/Dropbox/CS 155/Projects/Git/us/BSGD/submit/documents/report.tex"
@@ -93,9 +93,42 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\cleveref\cleveref.sty"
 Package: cleveref 2013/03/22 v0.18.9 Intelligent cross-referencing
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\subfig\subfig.sty"
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen113
+\captionmargin@=\dimen114
+\captionwidth=\dimen115
+\caption@tempdima=\dimen116
+\caption@indent=\dimen117
+\caption@parindent=\dimen118
+\caption@hangindent=\dimen119
+)
+\c@ContinuedFloat=\count91
+)
+\c@KVtest=\count92
+\sf@farskip=\skip43
+\sf@captopadj=\dimen120
+\sf@capskip=\skip44
+\sf@nearskip=\skip45
+\c@subfigure=\count93
+\c@subfigure@save=\count94
+\c@lofdepth=\count95
+\c@subtable=\count96
+\c@subtable@save=\count97
+\c@lotdepth=\count98
+\sf@top=\skip46
+\sf@bottom=\skip47
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2013/01/14 v2.14 AMS math features
-\@mathmargin=\skip43
+\@mathmargin=\skip48
 
 For additional information on amsmath, use the `?' option.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
@@ -104,66 +137,66 @@ Package: amstext 2000/06/29 v2.01
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks16
-\ex@=\dimen113
+\ex@=\dimen121
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen114
+\pmbraise@=\dimen122
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count91
+\inf@bad=\count99
 LaTeX Info: Redefining \frac on input line 210.
-\uproot@=\count92
-\leftroot@=\count93
+\uproot@=\count100
+\leftroot@=\count101
 LaTeX Info: Redefining \overline on input line 306.
-\classnum@=\count94
-\DOTSCASE@=\count95
+\classnum@=\count102
+\DOTSCASE@=\count103
 LaTeX Info: Redefining \ldots on input line 378.
 LaTeX Info: Redefining \dots on input line 381.
 LaTeX Info: Redefining \cdots on input line 466.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
-\big@size=\dimen115
+\big@size=\dimen123
 LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
-\macc@depth=\count96
-\c@MaxMatrixCols=\count97
+\macc@depth=\count104
+\c@MaxMatrixCols=\count105
 \dotsspace@=\muskip10
-\c@parentequation=\count98
-\dspbrk@lvl=\count99
+\c@parentequation=\count106
+\dspbrk@lvl=\count107
 \tag@help=\toks17
-\row@=\count100
-\column@=\count101
-\maxfields@=\count102
+\row@=\count108
+\column@=\count109
+\maxfields@=\count110
 \andhelp@=\toks18
-\eqnshift@=\dimen116
-\alignsep@=\dimen117
-\tagshift@=\dimen118
-\tagwidth@=\dimen119
-\totwidth@=\dimen120
-\lineht@=\dimen121
+\eqnshift@=\dimen124
+\alignsep@=\dimen125
+\tagshift@=\dimen126
+\tagwidth@=\dimen127
+\totwidth@=\dimen128
+\lineht@=\dimen129
 \@envbody=\toks19
-\multlinegap=\skip44
-\multlinetaggap=\skip45
+\multlinegap=\skip49
+\multlinetaggap=\skip50
 \mathdisplay@stack=\toks20
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
 ("D:\Dropbox\CS 155\Projects\Git\us\BSGD\submit\documents\report.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -201,102 +234,116 @@ LaTeX Font Info:    ... okay on input line 19.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count103
-\scratchdimen=\dimen122
+\scratchcounter=\count111
+\scratchdimen=\dimen130
 \scratchbox=\box28
-\nofMPsegments=\count104
-\nofMParguments=\count105
+\nofMPsegments=\count112
+\nofMParguments=\count113
 \everyMPshowfont=\toks21
-\MPscratchCnt=\count106
-\MPscratchDim=\dimen123
-\MPnumerator=\count107
-\makeMPintoPDFobject=\count108
+\MPscratchCnt=\count114
+\MPscratchDim=\dimen131
+\MPnumerator=\count115
+\makeMPintoPDFobject=\count116
 \everyMPtoPDFconversion=\toks22
-) [1
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+ [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
 <testparameter-crop.pdf, id=14, 578.16pt x 319.1925pt>
 File: testparameter-crop.pdf Graphic file (type pdf)
 
 <use testparameter-crop.pdf>
-Package pdftex.def Info: testparameter-crop.pdf used on input line 76.
+Package pdftex.def Info: testparameter-crop.pdf used on input line 78.
 (pdftex.def)             Requested size: 469.75502pt x 259.34326pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 <1_All_Movies_Seen-crop.pdf, id=15, 1017.8025pt x 504.88625pt>
 File: 1_All_Movies_Seen-crop.pdf Graphic file (type pdf)
 
 <use 1_All_Movies_Seen-crop.pdf>
-Package pdftex.def Info: 1_All_Movies_Seen-crop.pdf used on input line 88.
+Package pdftex.def Info: 1_All_Movies_Seen-crop.pdf used on input line 90.
 (pdftex.def)             Requested size: 469.75502pt x 233.02858pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 <2_Three_Clusters_with_Name_adjust-crop.pdf, id=16, 999.735pt x 506.89375pt>
 File: 2_Three_Clusters_with_Name_adjust-crop.pdf Graphic file (type pdf)
 
 <use 2_Three_Clusters_with_Name_adjust-crop.pdf>
 Package pdftex.def Info: 2_Three_Clusters_with_Name_adjust-crop.pdf used on inp
-ut line 95.
+ut line 97.
 (pdftex.def)             Requested size: 469.75502pt x 238.17822pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 <3_Series-crop.pdf, id=17, 1009.7725pt x 504.88625pt>
 File: 3_Series-crop.pdf Graphic file (type pdf)
  <use 3_Series-crop.pdf>
-Package pdftex.def Info: 3_Series-crop.pdf used on input line 102.
+Package pdftex.def Info: 3_Series-crop.pdf used on input line 104.
 (pdftex.def)             Requested size: 469.75502pt x 234.87752pt.
 
+<5_Romance.png, id=18, 510.40688pt x 392.96812pt>
+File: 5_Romance.png Graphic file (type png)
+ <use 5_Romance.png>
+Package pdftex.def Info: 5_Romance.png used on input line 110.
+(pdftex.def)             Requested size: 158.99377pt x 122.41248pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+<4_Documentary.png, id=20, 503.63156pt x 398.99063pt>
+File: 4_Documentary.png Graphic file (type png)
+ <use 4_Documentary.png>
+Package pdftex.def Info: 4_Documentary.png used on input line 111.
+(pdftex.def)             Requested size: 158.99377pt x 125.95667pt.
 
-<U-crop.pdf, id=18, 472.76625pt x 380.42125pt>
+<6_War.png, id=21, 509.65407pt x 387.69844pt>
+File: 6_War.png Graphic file (type png)
+ <use 6_War.png>
+Package pdftex.def Info: 6_War.png used on input line 112.
+(pdftex.def)             Requested size: 158.99377pt x 120.9484pt.
+
+Overfull \hbox (7.2263pt too wide) in paragraph at lines 110--113
+[][][][] 
+ []
+
+<U-crop.pdf, id=22, 472.76625pt x 380.42125pt>
 File: U-crop.pdf Graphic file (type pdf)
  <use U-crop.pdf>
-Package pdftex.def Info: U-crop.pdf used on input line 111.
+Package pdftex.def Info: U-crop.pdf used on input line 122.
 (pdftex.def)             Requested size: 234.8775pt x 189.00276pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[2] [3 <D:/Dropbox/CS 155/Projects/Git/us/BSGD/submit/documents/testparameter-c
-rop.pdf> <D:/Dropbox/CS 155/Projects/Git/us/BSGD/submit/documents/1_All_Movies_
-Seen-crop.pdf>] [4 <D:/Dropbox/CS 155/Projects/Git/us/BSGD/submit/documents/2_T
-hree_Clusters_with_Name_adjust-crop.pdf> <D:/Dropbox/CS 155/Projects/Git/us/BSG
-D/submit/documents/3_Series-crop.pdf
+ [2] [3 <D:/Dropbox/CS 155/Projects/Git/us/BSGD/submit/documents/testparameter-
+crop.pdf> <D:/Dropbox/CS 155/Projects/Git/us/BSGD/submit/documents/1_All_Movies
+_Seen-crop.pdf>] [4 <D:/Dropbox/CS 155/Projects/Git/us/BSGD/submit/documents/2_
+Three_Clusters_with_Name_adjust-crop.pdf> <D:/Dropbox/CS 155/Projects/Git/us/BS
+GD/submit/documents/3_Series-crop.pdf
 
 pdfTeX warning: pdflatex.exe (file D:/Dropbox/CS 155/Projects/Git/us/BSGD/submi
 t/documents/3_Series-crop.pdf): PDF inclusion: multiple pdfs with page group in
 cluded in a single page
->] [5 <D:/Dropbox/CS 155/Projects/Git/us/BSGD/submit/documents/U-crop.pdf>]
-[6
+>] [5 <D:/Dropbox/CS 155/Projects/Git/us/BSGD/submit/documents/5_Romance.png> <
+D:/Dropbox/CS 155/Projects/Git/us/BSGD/submit/documents/4_Documentary.png> <D:/
+Dropbox/CS 155/Projects/Git/us/BSGD/submit/documents/6_War.png> <D:/Dropbox/CS 
+155/Projects/Git/us/BSGD/submit/documents/U-crop.pdf>] [6
 
-] ("D:\Dropbox\CS 155\Projects\Git\us\BSGD\submit\documents\report.aux") ) 
+]
+("D:\Dropbox\CS 155\Projects\Git\us\BSGD\submit\documents\report.aux") ) 
 Here is how much of TeX's memory you used:
- 3722 strings out of 493921
- 61710 string characters out of 3147282
- 134124 words of memory out of 3000000
- 7016 multiletter control sequences out of 15000+200000
+ 4917 strings out of 493921
+ 83104 string characters out of 3147282
+ 159008 words of memory out of 3000000
+ 8197 multiletter control sequences out of 15000+200000
  9626 words of font info for 35 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,7n,32p,677b,225s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on report.pdf (6 pages, 323998 bytes).
+ 44i,9n,47p,814b,355s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on report.pdf (6 pages, 373011 bytes).
 PDF statistics:
- 599 PDF objects out of 1000 (max. 8388607)
+ 610 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
