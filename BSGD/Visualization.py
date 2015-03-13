@@ -78,6 +78,7 @@ seen = np.array(list(
         list(yiran[0] - 1)).intersection(popular_index).union(
         set(list(star_trek) + list(free_willy) + list(god_father) + list(batman))
     )))
+
 print list(yiran2[0]-1)
 # seen = yisong
 movie_seen = movie_all[['title', 'genre']].iloc[seen]
