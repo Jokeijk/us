@@ -6,6 +6,7 @@ import numpy as np
 import numpy.linalg as la
 import matplotlib.pyplot as plt
 
+# ############################################################################
 # read data, label the columns
 data = pd.read_table('data.txt', header=None)
 data.columns = ['user_id', 'movie_id', 'rating']
@@ -25,35 +26,52 @@ color_list = ['Red', 'Blue', 'Gold', 'Lime', 'Gray', 'Magenta',
               'LightGreen', 'Cyan', 'Wheat', 'Brown', 'DarkViolet', 'YellowGreen',
               'Black']
 
+# ############################################################################
 # now get the frequency for each movie, use it to find the most popular movies
 data_grouped = data[['user_id', 'movie_id']].groupby('movie_id').agg('count')
 frequency = data_grouped.reset_index().rename(columns={'user_id': 'frequency'})
 movie_all = movie_all.merge(frequency, on='movie_id')
 
-# movie_all['genre'] = ''
-# for genre in genre_list:
-# print genre
-#     # movie_all[movie_all[genre] == 1]['genre'] = genre
-#     movie_all.loc[movie_all[genre] == 1, 'genre'] = genre
+# assign genre to each movie
+# for movies with multiple genres, we use the last one
+movie_all['genre'] = ''
+for genre in genre_list:
+    print genre
+    movie_all.loc[movie_all[genre] == 1, 'genre'] = genre
 
-
+# ############################################################################
 # find the N most popular movies
 def find_popular(movie_all, N):
     movie_sorted = movie_all.sort('frequency', ascending=False)
     movie_popular = movie_sorted.iloc[:N]
     return (movie_popular[['movie_id']].as_matrix() - 1).reshape(-1)
 
+#############################################################################
 # load U and V, project them to U_tilde, V_tilde
 U = pd.read_table('U.txt', header=None).as_matrix()
 V = pd.read_table('V.txt', header=None).as_matrix()
-
 A, s, B = la.svd(V)
 S = np.zeros(V.shape)
 S[0:len(s), 0:len(s)] = np.diag(s)
-
 V_tilde = A[:, :2].transpose().dot(V)
 U_tilde = A[:, :2].transpose().dot(U)
 
+#############################################################################
+# now for each genre, make the scatter plots
+for i in xrange(len(genre_list)):
+    genre_tmp = genre_list[i]
+    print genre_tmp
+    movie_tmp = movie_all[movie_all['genre'] == genre_tmp]
+    index_tmp = np.array(movie_tmp.index)
+    fig = plt.figure()
+    plt.scatter(V_tilde[0, index_tmp], V_tilde[1, index_tmp],
+                marker='o', s=50, color=color_list[i], label=genre_tmp)
+    plt.axis([-1, 1, -1, 1])
+    plt.axhline()
+    plt.axvline()
+    fig.savefig(r'D:\Dropbox\CS 155\Projects\Git\us\BSGD\figures\%s.png' % genre_tmp)
+
+#############################################################################
 # now find the movies we've watched
 linghu = pd.read_table('linghu.txt', header=None)
 dunzhu = pd.read_table('dunzhu.txt', header=None)
@@ -85,31 +103,19 @@ seen_raw = pd.read_csv('ids.csv')[['movie_id', 'title', 'genre']]
 movie_seen = seen_raw[['title', 'genre']]
 seen = np.array(seen_raw['movie_id'] - 1)
 
-seen = np.array(list(
-    set(list(linghu[0] - 1) +
-        list(dunzhu[0] - 1) +
-        list(yiran2[0] - 1) +
-        list(yiran[0] - 1)).intersection(popular_index).union(
-        set(list(star_trek) +
-            list(free_willy) +
-            list(god_father) +
-            list(batman) +
-            list(terminator) +
-            list(hepburn))
-    )))
 # or alternatively, we can just look at the series
-seen = np.array(list(set(list(star_trek) + list(free_willy) + list(god_father) + list(batman) + list(terminator))))
+# seen = np.array(list(set(list(star_trek) + list(free_willy) + list(god_father) + list(batman) + list(terminator))))
+# movie_seen = movie_all[['title', 'genre']].iloc[seen]
 
-movie_seen = movie_all[['title', 'genre']].iloc[seen]
-
-
-# for all movies
+#############################################################################
+# make scatter plot for movies in ids.csv, sort genre by frequency
 genre_sorted = movie_seen.groupby('genre').agg(
     'count').sort('title', ascending=False).reset_index()['genre']
 
 font_size = 12
-genre_sorted = ['Romance', 'Sci-Fi', 'Crime']
-color_list = ['Red', 'Blue', 'Lime']
+# look at the 3 most popular specific genres: Romance, Sci-Fi, Crime
+# genre_sorted = ['Romance', 'Sci-Fi', 'Crime']
+# color_list = ['Red', 'Blue', 'Lime']
 for i in xrange(len(genre_sorted)):
     genre_tmp = genre_sorted[i]
     # movie_seen_tmp = movie_seen[movie_seen['genre'] == genre_tmp]
@@ -119,8 +125,8 @@ for i in xrange(len(genre_sorted)):
     plt.scatter(V_tilde[0, seen_tmp], V_tilde[1, seen_tmp],
                 marker='o', s=300,
                 color=color_list[i],
-                label=genre_tmp
-    )
+                label=genre_tmp)
+    # add annotation
     offset = 0
     for label, x, y in zip(movie_seen_tmp[['title']].as_matrix(),
                            V_tilde[0, seen_tmp].transpose(),
@@ -131,26 +137,22 @@ for i in xrange(len(genre_sorted)):
             label_new,
             xy=(x, y), xytext=(-offset, offset),
             size=font_size,
-            textcoords='offset points', ha='right', va='bottom',
-            # bbox=dict(boxstyle='round,pad=0.2', fc='yellow', alpha=0.5),
-            # arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=0')
+            textcoords='offset points', ha='right', va='bottom'
         )
 plt.axhline()
 plt.axvline()
 plt.legend(loc=1, scatterpoints=1, prop={'size': font_size})
 plt.show()
-
-# for series
+#############################################################################
+# make scatter plot for each series
 for i in xrange(len(series_list)):
     series = series_list[i]
     movie_seen_tmp = movie_all.iloc[series, :]
-    # seen_tmp = np.array(movie_seen_tmp.index)
     seen_tmp = series
     plt.scatter(V_tilde[0, seen_tmp], V_tilde[1, seen_tmp],
                 marker='o', s=50,
                 color=color_list[i],
-                label=label_list[i]
-    )
+                label=label_list[i])
     for label, x, y in zip(movie_seen_tmp[['title']].as_matrix(),
                            V_tilde[0, seen_tmp].transpose(),
                            V_tilde[1, seen_tmp].transpose()):
@@ -161,29 +163,8 @@ for i in xrange(len(series_list)):
             xy=(x, y), xytext=(-offset, offset),
             size=font_size,
             textcoords='offset points', ha='right', va='bottom',
-            color=color_list[i]
-            # bbox=dict(boxstyle='round,pad=0.2', fc='yellow', alpha=0.5),
-            # arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=0')
-        )
-
+            color=color_list[i])
 plt.axhline()
 plt.axvline()
 plt.legend(loc=1, scatterpoints=1, prop={'size': font_size})
 plt.show()
-
-
-
-# now for each genre
-for i in xrange(len(genre_list)):
-    genre_tmp = genre_list[i]
-    print genre_tmp
-    movie_tmp = movie_all[movie_all['genre'] == genre_tmp]
-    index_tmp = np.array(movie_tmp.index)
-    fig = plt.figure()
-    plt.scatter(V_tilde[0, index_tmp], V_tilde[1, index_tmp],
-                marker='o', s=50, color=color_list[i], label=genre_tmp)
-    plt.axis([-1, 1, -1, 1])
-    plt.axhline()
-    plt.axvline()
-    fig.savefig(r'D:\Dropbox\CS 155\Projects\Git\us\BSGD\figures\%s.png' % genre_tmp)
-
