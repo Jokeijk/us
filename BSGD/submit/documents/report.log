@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.10.30)  13 MAR 2015 12:41
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.10.30)  13 MAR 2015 12:43
 entering extended mode
  %&-line parsing enabled.
 **report.tex
@@ -131,7 +131,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 \mathdisplay@stack=\toks20
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
-) (./report.aux)
+)
+No file report.aux.
 \openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
@@ -146,7 +147,6 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
 LaTeX Font Info:    ... okay on input line 19.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
 LaTeX Font Info:    ... okay on input line 19.
-
 *geometry auto-detecting driver*
 *geometry detected driver: pdftex*
 -------------------- Geometry parameters
@@ -205,12 +205,27 @@ LaTeX Info: Redefining \ref on input line 19.
  [1
 
 {/home/dli/.texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+LaTeX Warning: Reference `fig:test' on page 1 undefined on input line 72.
+
+
+LaTeX Warning: Reference `fig:test' on page 1 undefined on input line 72.
+
 <testparameter-crop.pdf, id=14, 578.16pt x 319.1925pt>
 File: testparameter-crop.pdf Graphic file (type pdf)
 
 <use testparameter-crop.pdf>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: Reference `fig:all' on page 1 undefined on input line 83.
+
+
+LaTeX Warning: Reference `fig:cluster' on page 1 undefined on input line 83.
+
+
+LaTeX Warning: Reference `fig:series' on page 1 undefined on input line 83.
 
 <1_All_Movies_Seen-crop.pdf, id=15, 1017.8025pt x 504.88625pt>
 File: 1_All_Movies_Seen-crop.pdf Graphic file (type pdf)
@@ -254,13 +269,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 2957 strings out of 495061
- 48016 string characters out of 1182620
+ 2955 strings out of 495061
+ 47994 string characters out of 1182620
  125711 words of memory out of 3000000
  6143 multiletter control sequences out of 15000+50000
  9933 words of font info for 36 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 27i,7n,32p,594b,217s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,7n,32p,591b,217s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-te
 xlive/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-texlive/fonts
@@ -269,7 +284,7 @@ c/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
 m/cmr17.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb><
 /usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/
 texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on report.pdf (6 pages, 323968 bytes).
+Output written on report.pdf (6 pages, 324013 bytes).
 PDF statistics:
  600 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
